@@ -145,8 +145,16 @@ public class KundeView{
     }
     
     private void legeKundenAn(){
-         Kunde kunde = null;
-         // Objekt kunde fuellen
+         Kunde kunde = new Kunde(); //Kunde nicht mehr null
+         
+         // Objekt kunde fuellen:
+         
+         kunde.setEmail(txtEmail.getText());
+         kunde.setVorname(txtVorname.getText());
+         kunde.setNachname(txtNachname.getText());
+         //kunde.setHausnummer(txtHausnummer.getText());
+         kunde.setTelefonnummer(txtTelefon.getText());
+         
          if(txtKundenNr.getText().isEmpty() || txtVorname.getText().isEmpty() || txtNachname.getText().isEmpty() || txtTelefon.getText().isEmpty() || txtEmail.getText().isEmpty()) {
 	        	Alert alert = new Alert(AlertType.ERROR);
 	        	alert.setTitle("Error");

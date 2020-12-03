@@ -65,7 +65,28 @@ public final class KundeModel {
 	 */
 	public void speichereKunden(Kunde kunde)
 	    throws SQLException, Exception{
-        // Speicherung des Kunden in der DB
+        // Speicherung des Kunden in der DB	
    	    this.kunde = kunde;
+   	    
+   	    
+   	    //---------ergänzt:----------------------------------------------------------
+   	    //DB Connection war noch nicht bereitgestellt
+   	    //je nach dem, evtl. so ähnlich: (oder auch anders):
+   	    
+   	    /*
+   	     ...
+   	     ... db.executeStatement("INSERT INTO kunde VALUES(kunde.getVorname(), kunde.getNachname(), kunde.getEmail(), kunde.getTelefonnummer());");
+   	     ...
+   	     
+   	     */
+   	    
+   	    //Vorübergehende Ausgabe:
+   	    System.out.println("Vorübergehende Ausgabe der Kundendaten: (im KundeModel)");
+   	    System.out.println("Vorname:" + kunde.getVorname());
+	   	System.out.println("Nachname:" + kunde.getNachname());
+	   	System.out.println("Email:" + kunde.getEmail());
+	   	System.out.println("Telefon:" + kunde.getTelefonnummer());
+   	    
+   	    
 	}  
 }
