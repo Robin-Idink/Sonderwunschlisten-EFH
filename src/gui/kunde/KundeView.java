@@ -25,10 +25,19 @@ public class KundeView{
 	private GridPane gridPane 			= new GridPane();
 	private Label lblKunde    	      	= new Label("Kunde");
     private Label lblNummerHaus     	= new Label("Plannummer des Hauses");
+   
     private ComboBox<Integer> 
         cmbBxNummerHaus                 = new ComboBox<Integer>();
+    private Label lblKundenNr			= new Label("Kundennummer");
     private Label lblVorname         	= new Label("Vorname");
+    private Label lblNachname			= new Label("Nachname");
+    private Label lblTelefon			= new Label("Telefonnummer");
+    private Label lblEmail				= new Label("Emailadresse");
     private TextField txtVorname     	= new TextField();   
+    private TextField txtNachname     	= new TextField();   
+    private TextField txtTelefon    	= new TextField();   
+    private TextField txtEmail	    	= new TextField();  
+    private TextField txtKundenNr		= new TextField();
     private Button btnAnlegen	 	  	= new Button("Anlegen");
     private Button btnAendern 	      	= new Button("Ändern");
     private Button btnLoeschen 	 		= new Button("Löschen");
@@ -49,7 +58,7 @@ public class KundeView{
         this.kundeModel = kundeModel;
         
         primaryStage.setTitle(this.kundeModel.getUeberschrift());	
-	    Scene scene = new Scene(borderPane, 550, 400);
+	    Scene scene = new Scene(borderPane, 550, 500);
 	    primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -61,9 +70,10 @@ public class KundeView{
     /* initialisiert die Steuerelemente auf der Maske */
     private void initKomponenten(){
     	borderPane.setCenter(gridPane);
-	    gridPane.setHgap(10);
-	    gridPane.setVgap(10);
+	    gridPane.setHgap(13);
+	    gridPane.setVgap(13);
 	    gridPane.setPadding(new Insets(25, 25, 25, 25));
+	    gridPane.setGridLinesVisible(false);
        	
 	    gridPane.add(lblKunde, 0, 1);
        	lblKunde.setMinSize(150, 40);
@@ -72,14 +82,35 @@ public class KundeView{
 	    gridPane.add(cmbBxNummerHaus, 1, 2);
 	    cmbBxNummerHaus.setMinSize(150,  25);
 	    cmbBxNummerHaus.setItems(this.kundeModel.getPlannummern());
-	    gridPane.add(lblVorname, 0, 3);
-	    gridPane.add(txtVorname, 1, 3);
+	   
+	    gridPane.add(lblKundenNr, 0, 3);
+	    gridPane.add(txtKundenNr, 1, 3);
+	    gridPane.add(lblVorname, 0, 5);
+	    gridPane.add(txtVorname, 1, 5);
+	    gridPane.add(lblNachname, 0, 7);
+	    gridPane.add(txtNachname, 1, 7);
+	    gridPane.add(lblTelefon, 0, 9);
+	    gridPane.add(txtTelefon, 1, 9);
+	    gridPane.add(lblEmail, 0, 11);
+	    gridPane.add(txtEmail, 1, 11);
+	    
+	    
+	    //Textfields
+	    
+	    txtKundenNr.promptTextProperty().set("Kundennummer");
+	    txtVorname.promptTextProperty().set("Vorname");
+	    txtNachname.promptTextProperty().set("Nachname");
+	    txtTelefon.promptTextProperty().set("Telefonnummer");
+	    txtEmail.promptTextProperty().set("Email");
+	    
+	    
+	    
 	    // Buttons
-	    gridPane.add(btnAnlegen, 0, 7);
+	    gridPane.add(btnAnlegen, 0, 13);
 	    btnAnlegen.setMinSize(150,  25);
-	    gridPane.add(btnAendern, 1, 7);
+	    gridPane.add(btnAendern, 1, 13);
 	    btnAendern.setMinSize(150,  25);
-	    gridPane.add(btnLoeschen, 2, 7);
+	    gridPane.add(btnLoeschen, 2, 13);
 	    btnLoeschen.setMinSize(150,  25);
 	    // MenuBar und Menu
 	    borderPane.setTop(mnBar);
@@ -116,7 +147,16 @@ public class KundeView{
     private void legeKundenAn(){
          Kunde kunde = null;
          // Objekt kunde fuellen
-         kundeControl.speichereKunden(kunde);
+         if(txtKundenNr.getText().isEmpty() || txtVorname.getText().isEmpty() || txtNachname.getText().isEmpty() || txtTelefon.getText().isEmpty() || txtEmail.getText().isEmpty()) {
+	        	Alert alert = new Alert(AlertType.ERROR);
+	        	alert.setTitle("Error");
+	        	alert.setHeaderText("Fehlende Informationen");
+	        	alert.setContentText("Bitte füllen Sie alle Felder aus");
+	        	alert.showAndWait();
+         }
+         else {
+        	 kundeControl.speichereKunden(kunde);
+    	}
    	}
     
   	private void aendereKunden(){
