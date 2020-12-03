@@ -26,7 +26,7 @@ DGv = Dachgeschoss vorhanden
 
 2.2 needs 2.1  
 2.4 needs DGv  
-2.5 needs DGv  
+2.5 needs DGv   
 2.6 needs (DGv and 2.5)
 
 ### Sonderwünsche Fenster und Außentüren
@@ -45,7 +45,7 @@ DGv = Dachgeschoss vorhanden
 
 3.2 needs DGv  
 3.7 needs 3.4  
-3.8 needs 3.5
+3.8 needs 3.5  
 3.9 needs 3.6
 
 ### Sonderwünsche Innentüren
