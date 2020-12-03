@@ -24,10 +24,10 @@ DGv = Dachgeschoss vorhanden
 
 ### Abhängigkeiten
 
-2.2 $\Rightarrow$ 2.1  
-2.4 $\Rightarrow$ DGv  
-2.5 $\Rightarrow$ DGv  
-2.6 $\Rightarrow$ (DGv $\wedge$ 2.5)
+2.2 needs 2.1  
+2.4 needs DGv  
+2.5 needs DGv  
+2.6 needs (DGv and 2.5)
 
 ### Sonderwünsche Fenster und Außentüren
 
@@ -43,10 +43,10 @@ DGv = Dachgeschoss vorhanden
 
 ### Abhängigkeiten
 
-3.2 $\Rightarrow$ DGv  
-3.7 $\Rightarrow$ 3.4  
-3.8 $\Rightarrow$ 3.5
-3.9 $\Rightarrow$ 3.6
+3.2 needs DGv  
+3.7 needs 3.4  
+3.8 needs 3.5
+3.9 needs 3.6
 
 ### Sonderwünsche Innentüren
 
@@ -56,25 +56,25 @@ DGv = Dachgeschoss vorhanden
 
 ### Abhängigkeiten
 
-4.3 $\Rightarrow$ DGv
+4.3 needs DGv
 
 x = Anz. vorhandene Türen  
-y = Anz. Türen die einen Ausschnitt bekommen sollen $(1 \leq y \leq x) \wedge ((y + z) \leq x)$  
-z = Anz. Türen die einen Ausschnitt bekommen sollen $(1 \leq z \leq x) \wedge ((y + z) \leq x)$  
+y = Anz. Türen die einen Ausschnitt bekommen sollen (1 <= y <= x) and ((y + z) <= x)  
+z = Anz. Türen die einen Ausschnitt bekommen sollen (1 <= z <= x) and ((y + z) <= x)  
   
 Anz. Türen:  
 Keller:  
-1x $\Rightarrow$ DGv  
-2x $\Rightarrow$ $\neg$ DGv
+1x needs DGv  
+2x needs not DGv
   
 EG:  
-0x $\Rightarrow$ $\neg$ 2.2  
-1x $\Rightarrow$ 2.2  
+0x needs not 2.2  
+1x needs 2.2  
   
 OG:  
-4x $\Rightarrow$ $\neg$ 2.3  
-3x $\Rightarrow$ 2.3  
+4x needs not 2.3  
+3x needs 2.3  
 
 DG:  
-2x $\Rightarrow$ (DGv $\wedge$ 2.4 $\wedge$ 2.6)  
-1x $\Rightarrow$ DGv $\wedge$ ((2.4 $\wedge$ $\neg$ 2.6) $\vee$ ($\neg$ 2.4 $\wedge$ 2.6))
+2x needs (DGv and 2.4 and 2.6)  
+1x needs DGv and ((2.4 and not 2.6) or (not 2.4 and 2.6))
