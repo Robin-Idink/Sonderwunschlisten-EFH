@@ -1,5 +1,9 @@
 package business.kunde;
 
+import java.sql.*;
+
+
+
 public class Kunde {
 	
 	private int hausnummer;
@@ -7,6 +11,21 @@ public class Kunde {
 	private String nachname;
 	private String telefonnummer;
 	private String email;
+	
+	//Standartkonstruktor
+	public Kunde(){
+		
+	}
+	
+	public Kunde(String vorname, String nachname, String telefonnummer, String email) {
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.telefonnummer = telefonnummer;
+		this.email = email;
+	}
+	
+	
+	
 		  
 	public int getHausnummer() {
 		return hausnummer;
@@ -46,6 +65,42 @@ public class Kunde {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	
+	//Statische Methode um Informationen eines Kunden zu verändern
+	public static void updateKundeInDatenbank(int kundennummer,String type,String value) throws SQLException {
+		Connection conn = new Datenbank().connect();
+
+		String query = "UPDATE Kunde SET "+ type + " = \""+value+"\" WHERE kundennummer="+kundennummer+";";
+		try(Statement statement = conn.createStatement()){
+			statement.execute(query);
+			
+		} catch (SQLException ex) {
+			System.out.println("SQLException: " + ex.getMessage());
+			System.out.println("SQLState: " + ex.getSQLState());
+			System.out.println("VendorError: " + ex.getErrorCode());
+		}
+		conn.close();
+	}
+	
+	public void inDatenbankSpeichern() throws SQLException {
+		Connection conn = new Datenbank().connect();
+
+		String query = "INSERT INTO Kunde (vorname,nachname,email,telefonnummer) VALUES ('" + this.vorname + "','"
+				+ this.nachname + "','" + this.email + "','" + this.telefonnummer + "');";
+
+		try (Statement statment = conn.createStatement()) {
+			// statment.executeQuery(query);
+			statment.execute(query);
+			
+			conn.close();
+
+		} catch (SQLException ex) {
+			System.out.println("SQLException: " + ex.getMessage());
+			System.out.println("SQLState: " + ex.getSQLState());
+			System.out.println("VendorError: " + ex.getErrorCode());
+		}
 	}
 	
 }
