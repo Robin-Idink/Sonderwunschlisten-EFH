@@ -55,6 +55,7 @@ public class GrundrissView extends BasisView{
 	}
     
     private void leseGrundrissSonderwuensche(){
+    	
     	this.grundrissControl.leseGrundrissSonderwuensche();
     }
     
@@ -62,6 +63,18 @@ public class GrundrissView extends BasisView{
   	protected void berechneUndZeigePreisSonderwuensche(){
   		// Es wird erst die Methode pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw)
   		// aus dem Control aufgerufen, dann der Preis berechnet.
+  		
+  		
+  		//Provisorisches Array, da noch nicht bekannt ist wie die Sonderwunsch-Auswahl gespeichert wird
+  		int[] ausgewaehlteSw = new int[50];
+
+  		if(this.grundrissControl.pruefeKonstellationSonderwuensche(ausgewaehlteSw))
+  			System.out.println("Danke für Ihre Auswahl!");
+  			//Hier würden eigentlich die ausgewählten Sonderwünsche zusammengerechnet werden. Aktuell gibt es aber nur einen.
+  			//Sobald die anderen Sonderwünsche verfügbar sind, wird das hier hinzugefügt. 
+  			//Iteration über ein Array mit Referenzen auf die ausgewählten Preisboxen
+  		else
+  			System.out.println("Fehler");
   	}
   	
    	/* speichert die ausgesuchten Sonderwuensche in der Datenbank ab */
