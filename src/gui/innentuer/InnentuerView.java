@@ -20,21 +20,21 @@ public class InnentuerView extends BasisView{
         = new Label("Mehrpreis für die Ausführung eines Glasausschnitts (Klarglas) in einer Innentür");
     private TextField txtPreisTuerKlarglas 	= new TextField();
     private Label lblTuerKlarglasEuro 	= new Label(",- Euro je Tür");
-    private CheckBox chckTuerKlarglas 	= new CheckBox();
+    private TextField chckTuerKlarglas 	= new TextField();
 
 	// F40 4.2) Mehrpreis für die Ausführung eines Glasausschnitts (Milchglas) in einer Innentür
     private Label lblTuerMilchglas
         = new Label("Mehrpreis für die Ausführung eines Glasausschnitts (Milchglas) in einer Innentür");
     private TextField txtPreisTuerMilchglas 	= new TextField();
     private Label lblTuerMilchglasEuro	= new Label(",- Euro je Tür");
-    private CheckBox chckTuerMilchglas	= new CheckBox();
+    private TextField chckTuerMilchglas	= new TextField();
 
 	// F40 4.1) Innentür zur Garage als Holztür
     private Label lblHolztuerGarage
         = new Label("Innentür zur Garage als Holztür");
     private TextField txtPreisHolztuerGarage 	= new TextField();
     private Label lblHolztuerGarageEuro		= new Label(",- Euro je Tür");
-    private CheckBox chckHolztuerGarage 	= new CheckBox();
+    private TextField chckHolztuerGarage 	= new TextField();
 
     //-------Ende Attribute der grafischen Oberflaeche-------
 
@@ -94,7 +94,25 @@ public class InnentuerView extends BasisView{
 
 	@Override
 	protected void berechneUndZeigePreisSonderwuensche() {
-		// TODO Auto-generated method stub
+
+		// Es wird erst die Methode pruefeKonstellationSonderwuensche(a, b, c)
+  		// aus dem Control aufgerufen, dann der Preis berechnet.
+		
+		int anzahlTuerKlarglas = Integer.parseInt(chckTuerKlarglas.getText());
+		int anzahlTuerMilchglas = Integer.parseInt(chckTuerMilchglas.getText());
+		int anzahlHolztuerGarage = Integer.parseInt(chckHolztuerGarage.getText());
+		
+		int preisInnentueren = 0;
+		
+		if (this.innentuerControl.pruefeKonstellationSonderwuensche(anzahlTuerKlarglas, anzahlTuerMilchglas, anzahlHolztuerGarage)) { 
+			System.out.println("Es findet noch keine Konstellationsüberprüfung statt");
+			System.out.println("alle Angaben bzgl. der Anzahl der Innentüren sind korrekt");
+			preisInnentueren = anzahlTuerKlarglas * 460 + anzahlTuerMilchglas * 560 + anzahlHolztuerGarage * 660;
+			System.out.println("Gesamtpreis der Innentüren :\t" + preisInnentueren);
+		}
+		else System.out.println("Fehler in den Anzahl Angaben der Innentüren");
+		
+		
 	}
 
 
