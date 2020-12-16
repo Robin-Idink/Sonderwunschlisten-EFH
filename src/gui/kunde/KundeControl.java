@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import business.kunde.Kunde;
 import business.kunde.KundeModel;
 import gui.grundriss.GrundrissControl;
+import gui.innentuer.InnentuerControl;
 import javafx.stage.Stage;
 
 /**
@@ -19,6 +20,7 @@ public class KundeControl {
     /* das GrundrissControl-Objekt fuer die Sonderwuensche
        zum Grundriss zu dem Kunden */
     private GrundrissControl grundrissControl;
+    private InnentuerControl innentuerControl;
     
     /**
 	 * erzeugt ein ControlObjekt inklusive View-Objekt und Model-Objekt zum 
@@ -40,6 +42,15 @@ public class KundeControl {
       	}
     	this.grundrissControl.oeffneGrundrissView();
     }
+    
+    
+    public void oeffneInnentuerControl(){
+    	if (this.innentuerControl == null){
+    		this.innentuerControl = new InnentuerControl(kundeModel);
+      	}
+    	this.innentuerControl.oeffneInnentuerView();
+    }
+    
     
 	/**
 	 * speichert ein Kunde-Objekt in die Datenbank
