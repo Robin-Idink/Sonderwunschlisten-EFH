@@ -1,9 +1,9 @@
 package gui.kunde;
 
 import java.sql.SQLException;
-
 import business.kunde.Kunde;
 import business.kunde.KundeModel;
+import gui.fensterAuﬂentueren.FensterAuﬂentuerenControl;
 import gui.grundriss.GrundrissControl;
 import gui.innentuer.InnentuerControl;
 import javafx.stage.Stage;
@@ -21,6 +21,7 @@ public class KundeControl {
        zum Grundriss zu dem Kunden */
     private GrundrissControl grundrissControl;
     private InnentuerControl innentuerControl;
+    private FensterAuﬂentuerenControl fensterAuﬂentuerenControl;
     
     /**
 	 * erzeugt ein ControlObjekt inklusive View-Objekt und Model-Objekt zum 
@@ -49,6 +50,14 @@ public class KundeControl {
     		this.innentuerControl = new InnentuerControl(kundeModel);
       	}
     	this.innentuerControl.oeffneInnentuerView();
+    }
+    
+    
+    public void oeffneFensterAuﬂentuerenControl(){
+    	if (this.fensterAuﬂentuerenControl == null){
+    		this.fensterAuﬂentuerenControl = new FensterAuﬂentuerenControl(kundeModel);
+      	}
+    	this.fensterAuﬂentuerenControl.oeffneFensterAuﬂentuerenView();
     }
     
     
