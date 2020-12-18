@@ -45,6 +45,7 @@ public class KundeView{
     private Menu mnSonderwuensche    	= new Menu("Sonderwünsche");
     private MenuItem mnItmGrundriss  	= new MenuItem("Grundrissvarianten");
     private MenuItem mnItmInnentuer  	= new MenuItem("Innentuervarianten");
+    private MenuItem mnItmFensterAußentueren = new MenuItem("Fenster und Außentüren");
     //-------Ende Attribute der grafischen Oberflaeche-------
   
     /**
@@ -118,6 +119,7 @@ public class KundeView{
 	    mnBar.getMenus().add(mnSonderwuensche);
 	    mnSonderwuensche.getItems().add(mnItmGrundriss);
 	    mnSonderwuensche.getItems().add(mnItmInnentuer);
+	    mnSonderwuensche.getItems().add(mnItmFensterAußentueren);
     }
 
     /* initialisiert die Listener zu den Steuerelementen auf de Maske */
@@ -142,6 +144,10 @@ public class KundeView{
       	mnItmInnentuer.setOnAction(aEvent-> {
  	        kundeControl.oeffneInnentuerControl(); 
 	    });
+      	
+      	mnItmFensterAußentueren.setOnAction(aEvent-> {
+ 	        kundeControl.oeffneFensterAußentuerenControl();
+      	});
     
     }
     
