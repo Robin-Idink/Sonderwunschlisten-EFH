@@ -27,6 +27,10 @@ public final class InnentuerControl {
 		stageInnentuer.initModality(Modality.APPLICATION_MODAL);
     	this.innentuerView = new InnentuerView(this, stageInnentuer);
 	}
+	
+	public InnentuerControl() {
+
+	}
 
 	/**
 	 * macht das InnentuerView-Objekt sichtbar.

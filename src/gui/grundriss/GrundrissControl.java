@@ -25,6 +25,10 @@ public final class GrundrissControl {
 		stageGrundriss.initModality(Modality.APPLICATION_MODAL);
 		this.grundrissView = new GrundrissView(this, stageGrundriss);
 	}
+	
+	public GrundrissControl() {
+		
+	}
 
 	/**
 	 * macht das GrundrissView-Objekt sichtbar.

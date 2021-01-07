@@ -15,6 +15,9 @@ public final class FensterAuﬂentuerenControl {
 		
 	}
 	
+	public FensterAuﬂentuerenControl() {
+		
+	}
 	
 	public void oeffneFensterAuﬂentuerenView(){ 
 		this.fensterAuﬂentuerenView.oeffneFensterAuﬂentuerenView();
