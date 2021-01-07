@@ -130,12 +130,12 @@ public final class GrundrissControl {
 					}
 
 				case 26:
-					if (dachgeschoss && ausgewaehlteSw[24] == 1 && ausgewaehlteSw[26] == 1) {
+					if (dachgeschoss && ausgewaehlteSw[25] == 1 && ausgewaehlteSw[26] == 1) {
 						result = true;
 //						System.out.println("Sie haben SW 2.6 ausgewählt!");
 						break;
 					}else { 
-						throw new Exception("\n2.6 kann nur ausgewählt werden wenn 2.4 auch ausgewählt wurde!");
+						throw new Exception("\n2.6 kann nur ausgewählt werden wenn 2.5 auch ausgewählt wurde!");
 
 					}	
 				}
