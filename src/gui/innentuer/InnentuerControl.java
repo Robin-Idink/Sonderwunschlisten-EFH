@@ -39,7 +39,13 @@ public final class InnentuerControl {
 	}
 
 
-	public boolean pruefeKonstellationSonderwuensche(int anzahlTuerKlarglas, int anzahlTuerMilchglas, int anzahlHolztuerGarage) {
+	public boolean pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw) {
+		/*
+		wobei gilt:
+		ausgewaehlteSw[0] = anzahlTuerKlarglas
+		ausgewaehlteSw[1] = anzahlTuerMilchglas
+		ausgewaehlteSw[2] = anzahlHolztuerGarage
+		 */
 		
 		//Hier muss die Anzahl der eingegebenen Türen überprüft werden.
 		//Unterschieden wird zwischen Keller, EG, OG und DG.
