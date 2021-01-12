@@ -12,8 +12,8 @@ import business.kunde.KundeModel;
 import gui.grundriss.GrundrissControl;
 
 class GrundrissControlTest {
-	// represents definitions of dependencies from 03.12.2020
-	// initialize Sonderwuensche
+	// Definitionen von Abhängigkeiten definiert am 03.12.2020
+	// Initialisierung Sonderwuensche
 	int[] sonderwuensche = new int[50];
 	
 	int[] sonderwuensche22with21 = sonderwuensche.clone();
@@ -42,17 +42,17 @@ class GrundrissControlTest {
 	@BeforeEach
 	void setUpBeforeClass() throws Exception {
 	
-		// create customer with Dachgeschoss
+		// Kunde mit Dachgeschoss definieren
 		kundeWithDG.setHausnummer(10);
 		
-		// create customer without Dachgeschoss
+		// Kunde ohne Dachgeschoss definieren
 		kundeWithoutDG.setHausnummer(6);
 		
-		// 2.2 with 2.1 
+		// 2.2 mit 2.1 
 		sonderwuensche22with21[21] = 1;
 		sonderwuensche22with21[22] = 1;
 		
-		// 2.2 without 2.1	
+		// 2.2 ohne 2.1	
 		sonderwuensche22without21[22] = 1;
 		
 		// 2.4
@@ -61,11 +61,11 @@ class GrundrissControlTest {
 		// 2.5
 		sonderwuensche25[25] = 1;
 		
-		// 2.6 with 2.5
+		// 2.6 mit 2.5
 		sonderwuensche26with25[25] = 1;
 		sonderwuensche26with25[26] = 1;
 		
-		// 2.6 without 2.5
+		// 2.6 ohne 2.5
 		sonderwuensche26without25[26] = 1;		
 		
 	}
@@ -87,52 +87,34 @@ class GrundrissControlTest {
 	@Test
 	void testPruefeKonstellationSonderwuensche() {
 		
-		// printCurrentSwListe(sonderwuensche22with21, "sonderwuensche22with21");
-		
-		// printCurrentSwListe(sonderwuensche22without21, "sonderwuensche22without21");
-		
-		// Test 2.2 with 2.1
+		// Test 2.2 mit 2.1
 		assertTrue(testGrundrissControl.pruefeKonstellationSonderwuensche(sonderwuensche22with21));
-		// Test 2.2 without 2.1
+		// Test 2.2 ohne 2.1
 		assertFalse(testGrundrissControl.pruefeKonstellationSonderwuensche(sonderwuensche22without21));
-		
-		// System.out.println("2.2 getestet");
-		
-		// printCurrentSwListe(sonderwuensche24, "sonderwuensche24");
-		
-		// Test 2.4 with DG
+				
+		// Test 2.4 mit DG
 		setKundeModel(kundeWithDG, kundeModel);
 		assertTrue(testGrundrissControl.pruefeKonstellationSonderwuensche(sonderwuensche24));
-		// Test 2.4 without DG
+		// Test 2.4 ohne DG
 		setKundeModel(kundeWithoutDG, kundeModel);
 		assertFalse(testGrundrissControl.pruefeKonstellationSonderwuensche(sonderwuensche24));
 		
-		// System.out.println("2.4 getestet");
-		
-		// printCurrentSwListe(sonderwuensche25, "sonderwuensche25");
-		
-		// Test 2.5 with DG
+		// Test 2.5 mit DG
 		setKundeModel(kundeWithDG, kundeModel);
 		assertTrue(testGrundrissControl.pruefeKonstellationSonderwuensche(sonderwuensche25));
-		// Test 2.5 without DG
+		// Test 2.5 ohne DG
 		setKundeModel(kundeWithoutDG, kundeModel);
 		assertFalse(testGrundrissControl.pruefeKonstellationSonderwuensche(sonderwuensche25));
-		
-		// System.out.println("2.5 getestet");
-		
-		// printCurrentSwListe(sonderwuensche26with25, "sonderwuensche26with25");
-		// printCurrentSwListe(sonderwuensche26without25, "sonderwuensche26without25");
-		
-		// Test 2.6 with 2.5 and DG
+
+		// Test 2.6 mit 2.5 und DG
 		setKundeModel(kundeWithDG, kundeModel);
 		assertTrue(testGrundrissControl.pruefeKonstellationSonderwuensche(sonderwuensche26with25));
-		// Test 2.6 with 2.5 and without DG
+		// Test 2.6 mit 2.5 und ohne DG
 		setKundeModel(kundeWithoutDG, kundeModel);
 		assertFalse(testGrundrissControl.pruefeKonstellationSonderwuensche(sonderwuensche26with25));
-		// Test 2.6 without 2.5 and without DG
+		// Test 2.6 ohne 2.5 und ohne DG
 		assertFalse(testGrundrissControl.pruefeKonstellationSonderwuensche(sonderwuensche26without25));
 		
-		// System.out.println("2.6 getestet");
 	}
 
 }
