@@ -39,13 +39,13 @@ public class KundeView{
     private TextField txtEmail	    	= new TextField();  
     private TextField txtKundenNr		= new TextField();
     private Button btnAnlegen	 	  	= new Button("Anlegen");
-    private Button btnAendern 	      	= new Button("Ändern");
-    private Button btnLoeschen 	 		= new Button("Löschen");
+    private Button btnAendern 	      	= new Button("ï¿½ndern");
+    private Button btnLoeschen 	 		= new Button("Lï¿½schen");
     private MenuBar mnBar 			  	= new MenuBar();
-    private Menu mnSonderwuensche    	= new Menu("Sonderwünsche");
+    private Menu mnSonderwuensche    	= new Menu("Sonderwï¿½nsche");
     private MenuItem mnItmGrundriss  	= new MenuItem("Grundrissvarianten");
     private MenuItem mnItmInnentuer  	= new MenuItem("Innentuervarianten");
-    private MenuItem mnItmFensterAußentueren = new MenuItem("Fenster und Außentüren");
+    private MenuItem mnItmFensterAuÃŸentueren = new MenuItem("Fenster und Auï¿½entï¿½ren");
     //-------Ende Attribute der grafischen Oberflaeche-------
   
     /**
@@ -119,7 +119,7 @@ public class KundeView{
 	    mnBar.getMenus().add(mnSonderwuensche);
 	    mnSonderwuensche.getItems().add(mnItmGrundriss);
 	    mnSonderwuensche.getItems().add(mnItmInnentuer);
-	    mnSonderwuensche.getItems().add(mnItmFensterAußentueren);
+	    mnSonderwuensche.getItems().add(mnItmFensterAuÃŸentueren);
     }
 
     /* initialisiert die Listener zu den Steuerelementen auf de Maske */
@@ -145,8 +145,8 @@ public class KundeView{
  	        kundeControl.oeffneInnentuerControl(); 
 	    });
       	
-      	mnItmFensterAußentueren.setOnAction(aEvent-> {
- 	        kundeControl.oeffneFensterAußentuerenControl();
+      	mnItmFensterAuÃŸentueren.setOnAction(aEvent-> {
+ 	        kundeControl.oeffneFensterAuÃŸentuerenControl();
       	});
     
     }
@@ -172,7 +172,7 @@ public class KundeView{
 	        	Alert alert = new Alert(AlertType.ERROR);
 	        	alert.setTitle("Error");
 	        	alert.setHeaderText("Fehlende Informationen");
-	        	alert.setContentText("Bitte füllen Sie alle Felder aus");
+	        	alert.setContentText("Bitte fï¿½llen Sie alle Felder aus");
 	        	alert.showAndWait();
          }
          else {

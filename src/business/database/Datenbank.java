@@ -1,4 +1,4 @@
-package business.kunde;
+package business.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ public class Datenbank {
 
 	private Connection conn = null;
 	
-	Datenbank() {
+	public Datenbank() {
 		
 	}
 
