@@ -39,13 +39,14 @@ public class KundeView{
     private TextField txtEmail	    	= new TextField();  
     private TextField txtKundenNr		= new TextField();
     private Button btnAnlegen	 	  	= new Button("Anlegen");
-    private Button btnAendern 	      	= new Button("�ndern");
-    private Button btnLoeschen 	 		= new Button("L�schen");
+    private Button btnAendern 	      	= new Button("Ändern");
+    private Button btnLoeschen 	 		= new Button("Löschen");
+    private Button btnSuche 	 		= new Button("Suche");
     private MenuBar mnBar 			  	= new MenuBar();
-    private Menu mnSonderwuensche    	= new Menu("Sonderw�nsche");
+    private Menu mnSonderwuensche    	= new Menu("Sonderwünsche");
     private MenuItem mnItmGrundriss  	= new MenuItem("Grundrissvarianten");
     private MenuItem mnItmInnentuer  	= new MenuItem("Innentuervarianten");
-    private MenuItem mnItmFensterAußentueren = new MenuItem("Fenster und Au�ent�ren");
+    private MenuItem mnItmFensterAußentueren = new MenuItem("Fenster und Außentüren");
     //-------Ende Attribute der grafischen Oberflaeche-------
   
     /**
@@ -60,7 +61,7 @@ public class KundeView{
         this.kundeModel = kundeModel;
         
         primaryStage.setTitle(this.kundeModel.getUeberschrift());	
-	    Scene scene = new Scene(borderPane, 550, 500);
+	    Scene scene = new Scene(borderPane, 700, 500);
 	    primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -114,6 +115,8 @@ public class KundeView{
 	    btnAendern.setMinSize(150,  25);
 	    gridPane.add(btnLoeschen, 2, 13);
 	    btnLoeschen.setMinSize(150,  25);
+	    gridPane.add(btnSuche, 3, 13);
+	    btnSuche.setMinSize(150,  25);
 	    // MenuBar und Menu
 	    borderPane.setTop(mnBar);
 	    mnBar.getMenus().add(mnSonderwuensche);
@@ -136,6 +139,10 @@ public class KundeView{
 	    });
        	btnLoeschen.setOnAction(aEvent-> { 
            	loescheKunden();
+	    });
+       	btnSuche.setOnAction(aEvent-> { 
+       		aendereKunden();
+          
 	    });
       	mnItmGrundriss.setOnAction(aEvent-> {
  	        kundeControl.oeffneGrundrissControl(); 
@@ -172,7 +179,7 @@ public class KundeView{
 	        	Alert alert = new Alert(AlertType.ERROR);
 	        	alert.setTitle("Error");
 	        	alert.setHeaderText("Fehlende Informationen");
-	        	alert.setContentText("Bitte f�llen Sie alle Felder aus");
+	        	alert.setContentText("Bitte füllen Sie alle Felder aus");
 	        	alert.showAndWait();
          }
          else {
@@ -181,23 +188,48 @@ public class KundeView{
    	}
     
   	private void aendereKunden(){
+  		Kunde kunde = new Kunde();
+  		kunde.setVorname(txtVorname.getText());
+        kunde.setNachname(txtNachname.getText());
+        kunde.setEmail(txtEmail.getText());
+        kunde.setTelefonnummer(txtTelefon.getText());
+        kunde.setKundennummer(txtKundenNr.getText());
+        
+        if(txtNachname.getText().isEmpty()) {
+	        	Alert alert = new Alert(AlertType.ERROR);
+	        	alert.setTitle("Error");
+	        	alert.setHeaderText("Fehlende Informationen");
+	        	alert.setContentText("Bitte füllen Sie alle Felder aus");
+	        	alert.showAndWait();
+        }
+        else {
+       	 kundeControl.speichereKunden(kunde);
    	}
-  	
-   	private void loescheKunden(){
-   	}
+    
    	
-   /** zeigt ein Fehlermeldungsfenster an
-    * @param ueberschrift, Ueberschrift fuer das Fehlermeldungsfenster
-    * @param meldung, String, welcher die Fehlermeldung enthaelt
-    */
-    public void zeigeFehlermeldung(String ueberschrift, String meldung){
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Fehlermeldung");
-        alert.setHeaderText(ueberschrift);
-        alert.setContentText(meldung);
-        alert.show();
-    }
+  		    
+  	  }
+  	    
+  	   
+  	   	private void loescheKunden(){
+  	   	}
+  	   	
+  	   /** zeigt ein Fehlermeldungsfenster an
+  	    * @param ueberschrift, Ueberschrift fuer das Fehlermeldungsfenster
+  	    * @param meldung, String, welcher die Fehlermeldung enthaelt
+  	    */
+  	    public void zeigeFehlermeldung(String ueberschrift, String meldung){
+  	        Alert alert = new Alert(AlertType.ERROR);
+  	        alert.setTitle("Fehlermeldung");
+  	        alert.setHeaderText(ueberschrift);
+  	        alert.setContentText(meldung);
+  	        alert.show();
+  	    }
+  	
+  		
+   	
+  	
+   	
 
 }
-
 
