@@ -1,5 +1,14 @@
 package gui.basis;
 
+import business.kunde.CsvController;
+import gui.innentuer.InnentuerView;
+
+import java.io.FileWriter;
+import javax.swing.JOptionPane;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
+
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -11,6 +20,11 @@ import javafx.stage.Stage;
  * Klasse, welche die Basis fuer die Fenster zu den Sonderwuenschen bereitstellt.
  */
 public abstract class BasisView {
+	public BasisView(){
+		
+	}
+	
+	CsvController csvcontrol = new CsvController();
  
     //---Anfang Attribute der grafischen Oberflaeche---
 	Stage sonderwunschStage;
@@ -20,6 +34,7 @@ public abstract class BasisView {
    	private Label lblSonderwunsch   	= new Label("Sonderwunsch");
     private Button btnBerechnen 	 	= new Button("Preis berechnen");
     private Button btnSpeichern 	 	= new Button("Speichern");
+    private Button btnExportCsv 	 	= new Button("Csv-Dateiexport");
     //-------Ende Attribute der grafischen Oberflaeche-------
   
    /**
@@ -27,7 +42,7 @@ public abstract class BasisView {
     */
     public BasisView(Stage sonderwunschStage){
     	this.sonderwunschStage = sonderwunschStage;
-	    Scene scene = new Scene(borderPane, 560, 400);
+	    Scene scene = new Scene(borderPane, 660, 600);
 	    sonderwunschStage.setScene(scene);
 	
 	    this.initListener();
@@ -51,17 +66,33 @@ public abstract class BasisView {
 	    btnBerechnen.setMinSize(150,  25);
     	gridPaneButtons.add(btnSpeichern, 2, 0);
 	    btnSpeichern.setMinSize(150,  25);
+	    gridPaneButtons.add(btnExportCsv, 3, 0);
+	    btnSpeichern.setMinSize(150,  25);
     }  
     
     /* Es muessen die Listener implementiert werden. */
     protected void initListener(){
        	btnBerechnen.setOnAction(aEvent -> {
-    		berechneUndZeigePreisSonderwuensche();
+       		InnentuerView innentuer = new InnentuerView();
+    		innentuer.berechneUndZeigePreisSonderwuensche();
+       		//berechneUndZeigePreisSonderwuensche();
      	});
         btnSpeichern.setOnAction(aEvent -> {
     		speichereSonderwuensche();
     	});
+        btnExportCsv.setOnAction(aEvent -> {
+        	CsvController csvcontrol = new CsvController();
+        	//csvcontrol.ausgabeInnentueren();//Benutzen, wenn Methode angepasst
+        	PrintWriter pWriter = null;
+        	try{
+        		pWriter = new PrintWriter(new FileWriter("Innentüren.csv"));
+        		pWriter.println("Kundennummer_NachnameDesKunden_Innentueren.csv");
+        		JOptionPane.showMessageDialog(null, "Kundennummer_NachnameDesKunden_Innentueren.csv");
+        	}catch (IOException ioe) {
+                ioe.printStackTrace();
+        	}});
     }
+       
     
     protected GridPane getGridPaneSonderwunsch() {
   		return this.gridPane;
@@ -84,7 +115,7 @@ public abstract class BasisView {
    	/* speichert die ausgesuchten Sonderwuensche in der Datenbank ab */
   	protected abstract void speichereSonderwuensche();
   	
- 	
+  
+  		
 }
-
 
