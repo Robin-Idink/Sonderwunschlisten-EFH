@@ -68,36 +68,42 @@ public class GrundrissView extends BasisView{
        	
        	super.getGridPaneSonderwunsch().add(lblWandKueche, 0, 1);
     	super.getGridPaneSonderwunsch().add(txtPreisWandKueche, 1, 1);
+    	txtPreisWandKueche.setText("300");
     	txtPreisWandKueche.setEditable(false);
     	super.getGridPaneSonderwunsch().add(lblWandKuecheEuro, 2, 1);
     	super.getGridPaneSonderwunsch().add(chckBxWandKueche, 3, 1);
     	
     	super.getGridPaneSonderwunsch().add(lblTuerWandKueche, 0, 2);
     	super.getGridPaneSonderwunsch().add(txtPreisTuerWandKueche, 1, 2);
+    	txtPreisTuerWandKueche.setText("300");
     	txtPreisTuerWandKueche.setEditable(false);
     	super.getGridPaneSonderwunsch().add(lblTuerWandKuecheEuro, 2, 2);
     	super.getGridPaneSonderwunsch().add(chckBxTuerWandKueche, 3, 2);
     	
     	super.getGridPaneSonderwunsch().add(lblGroßesZimmer, 0, 3);
     	super.getGridPaneSonderwunsch().add(txtPreisGroßesZimmer, 1, 3);
+    	txtPreisGroßesZimmer.setText("0");
     	txtPreisGroßesZimmer.setEditable(false);
     	super.getGridPaneSonderwunsch().add(lblGroßesZimmerEuro, 2, 3);
     	super.getGridPaneSonderwunsch().add(chckBxGroßesZimmer, 3, 3);
     	
     	super.getGridPaneSonderwunsch().add(lblTreppenraum, 0, 4);
     	super.getGridPaneSonderwunsch().add(txtPreisTreppenraum, 1, 4);
+    	txtPreisTreppenraum.setText("890");
     	txtPreisTreppenraum.setEditable(false);
     	super.getGridPaneSonderwunsch().add(lblTreppenraumEuro, 2, 4);
     	super.getGridPaneSonderwunsch().add(chckBxTreppenraum, 3, 4);
     	
     	super.getGridPaneSonderwunsch().add(lblVorrichtungBadDachgeschoss, 0, 5);
     	super.getGridPaneSonderwunsch().add(txtPreisVorrichtungBadDachgeschoss, 1, 5);
+    	txtPreisVorrichtungBadDachgeschoss.setText("990");
     	txtPreisVorrichtungBadDachgeschoss.setEditable(false);
     	super.getGridPaneSonderwunsch().add(lblVorrichtungBadDachgeschossEuro, 2, 5);
     	super.getGridPaneSonderwunsch().add(chckBxVorrichtungBadDachgeschoss, 3, 5);
     	
     	super.getGridPaneSonderwunsch().add(lblAusführungBadDachgeschoss, 0, 6);
     	super.getGridPaneSonderwunsch().add(txtPreisAusführungBadDachgeschoss, 1, 6);
+    	txtPreisAusführungBadDachgeschoss.setText("8.990");
     	txtPreisAusführungBadDachgeschoss.setEditable(false);
     	super.getGridPaneSonderwunsch().add(lblAusführungBadDachgeschossEuro, 2, 6);
     	super.getGridPaneSonderwunsch().add(chckBxAusführungBadDachgeschoss, 3, 6);
@@ -120,17 +126,54 @@ public class GrundrissView extends BasisView{
   		// Es wird erst die Methode pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw)
   		// aus dem Control aufgerufen, dann der Preis berechnet.
   		
-  		
-  		//Provisorisches Array, da noch nicht bekannt ist wie die Sonderwunsch-Auswahl gespeichert wird
-  		int[] ausgewaehlteSw = new int[50];
+  		int preisGrundriss = 0;
+		
+		int[] ausgewaehlteSw = new int[50];
+		
+		if (chckBxWandKueche.isSelected()) {
+			ausgewaehlteSw[21] = 1;
+			preisGrundriss += 300;
+		}
+		else ausgewaehlteSw[21] = 0;
+		
+		if (chckBxTuerWandKueche.isSelected()) {
+			ausgewaehlteSw[22] = 1;
+			preisGrundriss += 300;
+		}
+		else ausgewaehlteSw[22] = 0;
+		
+		if (chckBxGroßesZimmer.isSelected()) {
+			ausgewaehlteSw[23] = 1;
+			preisGrundriss += 0;
+		}
+		else ausgewaehlteSw[23] = 0;
+		
+		if (chckBxTreppenraum.isSelected()) {
+			ausgewaehlteSw[24] = 1;
+			preisGrundriss += 890;
+		}
+		else ausgewaehlteSw[24] = 0;
+		
+		if (chckBxVorrichtungBadDachgeschoss.isSelected()) {
+			ausgewaehlteSw[25] = 1;
+			preisGrundriss += 990;
+		}
+		else ausgewaehlteSw[25] = 0;
+		
+		if (chckBxAusführungBadDachgeschoss.isSelected()) {
+			ausgewaehlteSw[26] = 1;
+			preisGrundriss += 8990;
+		}
+		else ausgewaehlteSw[26] = 0;
+		
+		
 
-  		if(this.grundrissControl.pruefeKonstellationSonderwuensche(ausgewaehlteSw))
-  			System.out.println("Danke für Ihre Auswahl!");
-  			//Hier würden eigentlich die ausgewählten Sonderwünsche zusammengerechnet werden. Aktuell gibt es aber nur einen.
-  			//Sobald die anderen Sonderwünsche verfügbar sind, wird das hier hinzugefügt. 
-  			//Iteration über ein Array mit Referenzen auf die ausgewählten Preisboxen
+  		if(this.grundrissControl.pruefeKonstellationSonderwuensche(ausgewaehlteSw)) {
+  			System.out.println("alle Angaben sind korrekt");
+  			System.out.println("Gesamtpreis des Grundrisses :\t" + preisGrundriss);
+  		}
   		else
-  			System.out.println("Fehler");
+  			System.out.println("Fehler in den Angaben");
   	}
   	
    	/* speichert die ausgesuchten Sonderwuensche in der Datenbank ab */

@@ -107,11 +107,11 @@ public class InnentuerView extends BasisView{
 		ausgewaehlteSw[43] = anzahlHolztuerGarage;
 		
 		int preisInnentueren = 0;
+		preisInnentueren = anzahlTuerKlarglas * 460 + anzahlTuerMilchglas * 560 + anzahlHolztuerGarage * 660;
 		
 		if (this.innentuerControl.pruefeKonstellationSonderwuensche(ausgewaehlteSw)) { 
 			//System.out.println("Es findet noch keine Konstellationsüberprüfung statt");
 			System.out.println("alle Angaben bzgl. der Anzahl der Innentüren sind korrekt");
-			preisInnentueren = anzahlTuerKlarglas * 460 + anzahlTuerMilchglas * 560 + anzahlHolztuerGarage * 660;
 			System.out.println("Gesamtpreis der Innentüren :\t" + preisInnentueren);
 		}
 		else System.out.println("Fehler in den Anzahl Angaben der Innentüren");

@@ -225,7 +225,7 @@ public class FensterAußentuerenView extends BasisView {
 			System.out.println("alle Angaben sind korrekt");
 			System.out.println("Gesamtpreis der Fenster und Außentueren :\t" + preisFensterAußentueren);
 		}
-		else System.out.println("Fehler in den Anzahl Angaben der Innentüren");
+		else System.out.println("Fehler in den Angaben");
 	}
 
 	/* speichert die ausgesuchten Sonderwuensche in der Datenbank ab */
