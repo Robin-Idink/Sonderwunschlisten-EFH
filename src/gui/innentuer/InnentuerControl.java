@@ -74,9 +74,9 @@ public final class InnentuerControl {
 	public boolean pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw) {
 		/*
 		wobei gilt:
-		ausgewaehlteSw[0] = anzahlTuerKlarglas
-		ausgewaehlteSw[1] = anzahlTuerMilchglas
-		ausgewaehlteSw[2] = anzahlHolztuerGarage
+		ausgewaehlteSw[41] = anzahlTuerKlarglas
+		ausgewaehlteSw[42] = anzahlTuerMilchglas
+		ausgewaehlteSw[43] = anzahlHolztuerGarage
 		 */
 		
 		//Hier muss die Anzahl der eingegebenen Türen überprüft werden.

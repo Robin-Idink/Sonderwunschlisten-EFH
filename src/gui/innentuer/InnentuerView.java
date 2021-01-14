@@ -95,18 +95,21 @@ public class InnentuerView extends BasisView{
 	@Override
 	protected void berechneUndZeigePreisSonderwuensche() {
 
-		// Es wird erst die Methode pruefeKonstellationSonderwuensche(a, b, c)
+		// Es wird erst die Methode pruefeKonstellationSonderwuensche(int[])
   		// aus dem Control aufgerufen, dann der Preis berechnet.
 		
 		int anzahlTuerKlarglas = Integer.parseInt(chckTuerKlarglas.getText());
 		int anzahlTuerMilchglas = Integer.parseInt(chckTuerMilchglas.getText());
 		int anzahlHolztuerGarage = Integer.parseInt(chckHolztuerGarage.getText());
-		int[] ausgewaehlteSw = {anzahlTuerKlarglas, anzahlTuerMilchglas, anzahlHolztuerGarage};
+		int[] ausgewaehlteSw = new int[50];
+		ausgewaehlteSw[41] = anzahlTuerKlarglas;
+		ausgewaehlteSw[42] = anzahlTuerMilchglas;
+		ausgewaehlteSw[43] = anzahlHolztuerGarage;
 		
 		int preisInnentueren = 0;
 		
 		if (this.innentuerControl.pruefeKonstellationSonderwuensche(ausgewaehlteSw)) { 
-			System.out.println("Es findet noch keine Konstellationsüberprüfung statt");
+			//System.out.println("Es findet noch keine Konstellationsüberprüfung statt");
 			System.out.println("alle Angaben bzgl. der Anzahl der Innentüren sind korrekt");
 			preisInnentueren = anzahlTuerKlarglas * 460 + anzahlTuerMilchglas * 560 + anzahlHolztuerGarage * 660;
 			System.out.println("Gesamtpreis der Innentüren :\t" + preisInnentueren);
