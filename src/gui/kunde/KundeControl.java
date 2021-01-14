@@ -3,7 +3,8 @@ package gui.kunde;
 import java.sql.SQLException;
 import business.kunde.Kunde;
 import business.kunde.KundeModel;
-import gui.fensterAu�entueren.FensterAu�entuerenControl;
+import gui.bilder.BilderControl;
+import gui.fensterAußentueren.FensterAußentuerenControl;
 import gui.grundriss.GrundrissControl;
 import gui.innentuer.InnentuerControl;
 import javafx.stage.Stage;
@@ -22,6 +23,7 @@ public class KundeControl {
     private GrundrissControl grundrissControl;
     private InnentuerControl innentuerControl;
     private FensterAußentuerenControl fensterAußentuerenControl;
+    private BilderControl bilderControl;
     
     /**
 	 * erzeugt ein ControlObjekt inklusive View-Objekt und Model-Objekt zum 
@@ -58,6 +60,13 @@ public class KundeControl {
     		this.fensterAußentuerenControl = new FensterAußentuerenControl(kundeModel);
       	}
     	this.fensterAußentuerenControl.oeffneFensterAußentuerenView();
+    }
+    
+    public void oeffneBilderControl(){
+    	if (this.bilderControl == null){
+    		this.bilderControl = new BilderControl(kundeModel);
+      	}
+    	this.bilderControl.oeffneBilderView();
     }
     
     
