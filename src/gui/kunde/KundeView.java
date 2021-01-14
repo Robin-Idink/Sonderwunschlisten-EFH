@@ -141,7 +141,12 @@ public class KundeView{
            	loescheKunden();
 	    });
        	btnSuche.setOnAction(aEvent-> { 
-       		aendereKunden();
+       		Kunde kunde = new Kunde();
+            System.out.println("Vorübergehende Ausgabe der Kundendaten: (im KundeModel)");
+       	    System.out.println("Vorname:" + kunde.getVorname());
+    	   	System.out.println("Nachname:" + kunde.getNachname());
+    	   	System.out.println("Email:" + kunde.getEmail());
+    	   	System.out.println("Telefon:" + kunde.getTelefonnummer());
           
 	    });
       	mnItmGrundriss.setOnAction(aEvent-> {
@@ -188,27 +193,13 @@ public class KundeView{
    	}
     
   	private void aendereKunden(){
-  		Kunde kunde = new Kunde();
-  		kunde.setVorname(txtVorname.getText());
-        kunde.setNachname(txtNachname.getText());
-        kunde.setEmail(txtEmail.getText());
-        kunde.setTelefonnummer(txtTelefon.getText());
-        kunde.setKundennummer(txtKundenNr.getText());
-        
-        if(txtNachname.getText().isEmpty()) {
-	        	Alert alert = new Alert(AlertType.ERROR);
-	        	alert.setTitle("Error");
-	        	alert.setHeaderText("Fehlende Informationen");
-	        	alert.setContentText("Bitte füllen Sie alle Felder aus");
-	        	alert.showAndWait();
-        }
-        else {
-       	 kundeControl.speichereKunden(kunde);
+      
+   	    
    	}
     
    	
   		    
-  	  }
+  	
   	    
   	   
   	   	private void loescheKunden(){
@@ -232,4 +223,5 @@ public class KundeView{
    	
 
 }
+
 
