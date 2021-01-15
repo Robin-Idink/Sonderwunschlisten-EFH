@@ -72,10 +72,8 @@ public abstract class BasisView {
     
     /* Es muessen die Listener implementiert werden. */
     protected void initListener(){
-       	btnBerechnen.setOnAction(aEvent -> {
-       		InnentuerView innentuer = new InnentuerView();
-    		innentuer.berechneUndZeigePreisSonderwuensche();
-       		//berechneUndZeigePreisSonderwuensche();
+    	btnBerechnen.setOnAction(aEvent -> {
+    		berechneUndZeigePreisSonderwuensche();
      	});
         btnSpeichern.setOnAction(aEvent -> {
     		speichereSonderwuensche();
