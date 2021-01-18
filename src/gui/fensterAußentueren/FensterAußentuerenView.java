@@ -1,7 +1,7 @@
 /**
  * 
  */
-package gui.fensterAußentueren;
+package gui.fensterAuÃŸentueren;
 
 import gui.basis.BasisView;
 import javafx.scene.control.CheckBox;
@@ -11,23 +11,23 @@ import javafx.stage.Stage;
 
 /**
  * Klasse, welche das Fenster mit den Sonderwuenschen zu 
- * den Fenster- und Außentürenvarianten bereitstellt.
+ * den Fenster- und Auï¿½entï¿½renvarianten bereitstellt.
  */
-public class FensterAußentuerenView extends BasisView {
+public class FensterAuÃŸentuerenView extends BasisView {
 	
-	// das Control-Objekt des Fenster- und Außentüren-Fensters
-	private FensterAußentuerenControl fensterAußentuerenControl;
+	// das Control-Objekt des Fenster- und Auï¿½entï¿½ren-Fensters
+	private FensterAuÃŸentuerenControl fensterAuÃŸentuerenControl;
 		
 	//---Anfang Attribute der grafischen Oberflaeche---
-	private Label lblEGTuerTerasse   	    	= new Label("Schiebetür zur Terasse");
-	private Label lblTuerDachTerasse   	    	= new Label("Schiebetür zur Dachterasse");
-	private Label lblEinbruchschutz   	    	= new Label("Erhöhter Einbruchsschutz an der Haustür");
-	private Label lblVorEgRollaeden   	    	= new Label("Vorbereitung der elektr. EG-Rolläden");
-	private Label lblVorOgRollaeden   	    	= new Label("Vorbereitung der elektr. OG-Rolläden");
-	private Label lblVorDgRollaeden  	    	= new Label("Vorbereitung der elektr. DG-Rolläden");
-	private Label lblEgRollaeden   	    	= new Label("Elektrische Rolläden für das EG");
-	private Label lblOgRollaeden   	    	= new Label("Elektrische Rolläden für das EG");
-	private Label lblDgRollaeden   	    	= new Label("Elektrische Rolläden für das EG");
+	private Label lblEGTuerTerasse   	    	= new Label("Schiebetï¿½r zur Terasse");
+	private Label lblTuerDachTerasse   	    	= new Label("Schiebetï¿½r zur Dachterasse");
+	private Label lblEinbruchschutz   	    	= new Label("Erhï¿½hter Einbruchsschutz an der Haustï¿½r");
+	private Label lblVorEgRollaeden   	    	= new Label("Vorbereitung der elektr. EG-Rollï¿½den");
+	private Label lblVorOgRollaeden   	    	= new Label("Vorbereitung der elektr. OG-Rollï¿½den");
+	private Label lblVorDgRollaeden  	    	= new Label("Vorbereitung der elektr. DG-Rollï¿½den");
+	private Label lblEgRollaeden   	    	= new Label("Elektrische Rollï¿½den fï¿½r das EG");
+	private Label lblOgRollaeden   	    	= new Label("Elektrische Rollï¿½den fï¿½r das EG");
+	private Label lblDgRollaeden   	    	= new Label("Elektrische Rollï¿½den fï¿½r das EG");
     private TextField preisEGTuerTerasse 		= new TextField();
     private TextField preisTuerDachTerasse 		= new TextField();
     private TextField preisEinbruchschutz 		= new TextField();
@@ -37,15 +37,15 @@ public class FensterAußentuerenView extends BasisView {
     private TextField preisEgRollaeden 		= new TextField();
     private TextField preisOgRollaeden 		= new TextField();
     private TextField preisDgRollaeden 		= new TextField();
-    private Label lblEGTuerTerasseWährung 		= new Label("Euro");
-    private Label lblTuerDachTerasseWährung 		= new Label("Euro");
-    private Label lblEinbruchschutzWährung 		= new Label("Euro");
-    private Label lblVorEgRollaedenWährung 		= new Label("Euro");
-    private Label lblVorOgRollaedenWährung 		= new Label("Euro");
-    private Label lblVorDgRollaedenWährung 		= new Label("Euro");
-    private Label lblEgRollaedenWährung 		= new Label("Euro");
-    private Label lblOgRollaedenWährung 		= new Label("Euro");
-    private Label lblDgRollaedenWährung 		= new Label("Euro");
+    private Label lblEGTuerTerasseWÃ¤hrung 		= new Label("Euro");
+    private Label lblTuerDachTerasseWÃ¤hrung 		= new Label("Euro");
+    private Label lblEinbruchschutzWÃ¤hrung 		= new Label("Euro");
+    private Label lblVorEgRollaedenWÃ¤hrung 		= new Label("Euro");
+    private Label lblVorOgRollaedenWÃ¤hrung 		= new Label("Euro");
+    private Label lblVorDgRollaedenWÃ¤hrung 		= new Label("Euro");
+    private Label lblEgRollaedenWÃ¤hrung 		= new Label("Euro");
+    private Label lblOgRollaedenWÃ¤hrung 		= new Label("Euro");
+    private Label lblDgRollaedenWÃ¤hrung 		= new Label("Euro");
     private CheckBox chckBxEGTuerTerasse 		= new CheckBox();
     private CheckBox chckBxTuerDachTerasse 		= new CheckBox();
     private CheckBox chckBxEinbruchschutz		= new CheckBox();
@@ -59,99 +59,99 @@ public class FensterAußentuerenView extends BasisView {
     
     
     /**
-     * erzeugt ein FensterAußentuerenView-Objekt, belegt das zugehoerige Control
+     * erzeugt ein FensterAuï¿½entuerenView-Objekt, belegt das zugehoerige Control
      * mit dem vorgegebenen Objekt und initialisiert die Steuerelemente der Maske
-     * @param fensterAußentuerenControl GrundrissControl, enthaelt das zugehoerige Control
-     * @param fensterAußentuerenStage Stage, enthaelt das Stage-Objekt fuer diese View
+     * @param fensterAuï¿½entuerenControl GrundrissControl, enthaelt das zugehoerige Control
+     * @param fensterAuï¿½entuerenStage Stage, enthaelt das Stage-Objekt fuer diese View
      */
-	public FensterAußentuerenView(FensterAußentuerenControl fensterAußentuerenControl, Stage fensterAußentuerenStage) {
-		super(fensterAußentuerenStage);
-		this.fensterAußentuerenControl = fensterAußentuerenControl;
-		fensterAußentuerenStage.setTitle("Sonderwünsche zu Fenstern und Außentüren");
+	public FensterAuÃŸentuerenView(FensterAuÃŸentuerenControl fensterAuÃŸentuerenControl, Stage fensterAuÃŸentuerenStage) {
+		super(fensterAuÃŸentuerenStage);
+		this.fensterAuÃŸentuerenControl = fensterAuÃŸentuerenControl;
+		fensterAuÃŸentuerenStage.setTitle("SonderwÃ¼nsche zu Fenstern und Auï¿½entï¿½ren");
 		
 		this.initKomponenten();
-		this.leseFensterAußentuerenSonderwuensche();
+		this.leseFensterAuÃŸentuerenSonderwuensche();
 		
 	}
 	
 	/* initialisiert die Steuerelemente auf der Maske */
 	protected void initKomponenten(){
     	super.initKomponenten(); 
-       	super.getLblSonderwunsch().setText("Fenster und Türen");
+       	super.getLblSonderwunsch().setText("Fenster und Tï¿½ren");
        	
        	super.getGridPaneSonderwunsch().add(lblEGTuerTerasse, 0, 1);
     	super.getGridPaneSonderwunsch().add(preisEGTuerTerasse, 1, 1);
     	preisEGTuerTerasse.setText("590");
     	preisEGTuerTerasse.setEditable(false);
-    	super.getGridPaneSonderwunsch().add(lblEGTuerTerasseWährung, 2, 1);
+    	super.getGridPaneSonderwunsch().add(lblEGTuerTerasseWÃ¤hrung, 2, 1);
     	super.getGridPaneSonderwunsch().add(chckBxEGTuerTerasse, 3, 1);
     	
     	super.getGridPaneSonderwunsch().add(lblTuerDachTerasse, 0, 2);
     	super.getGridPaneSonderwunsch().add(preisTuerDachTerasse, 1, 2);
     	preisTuerDachTerasse.setText("590");
     	preisTuerDachTerasse.setEditable(false);
-    	super.getGridPaneSonderwunsch().add(lblTuerDachTerasseWährung, 2, 2);
+    	super.getGridPaneSonderwunsch().add(lblTuerDachTerasseWÃ¤hrung, 2, 2);
     	super.getGridPaneSonderwunsch().add(chckBxTuerDachTerasse, 3, 2);
     	
     	super.getGridPaneSonderwunsch().add(lblEinbruchschutz, 0, 3);
     	super.getGridPaneSonderwunsch().add(preisEinbruchschutz, 1, 3);
     	preisEinbruchschutz.setText("690");
     	preisEinbruchschutz.setEditable(false);
-    	super.getGridPaneSonderwunsch().add(lblEinbruchschutzWährung, 2, 3);
+    	super.getGridPaneSonderwunsch().add(lblEinbruchschutzWÃ¤hrung, 2, 3);
     	super.getGridPaneSonderwunsch().add(chckBxEinbruchschutz, 3, 3);
     	
     	super.getGridPaneSonderwunsch().add(lblVorEgRollaeden, 0, 4);
     	super.getGridPaneSonderwunsch().add(preisVorEgRollaeden, 1, 4);
     	preisVorEgRollaeden.setText("190");
     	preisVorEgRollaeden.setEditable(false);
-    	super.getGridPaneSonderwunsch().add(lblVorEgRollaedenWährung, 2, 4);
+    	super.getGridPaneSonderwunsch().add(lblVorEgRollaedenWÃ¤hrung, 2, 4);
     	super.getGridPaneSonderwunsch().add(chckBxVorEgRollaeden, 3, 4);
     	
     	super.getGridPaneSonderwunsch().add(lblVorOgRollaeden, 0, 5);
     	super.getGridPaneSonderwunsch().add(preisVorOgRollaeden, 1, 5);
     	preisVorOgRollaeden.setText("190");
     	preisVorOgRollaeden.setEditable(false);
-    	super.getGridPaneSonderwunsch().add(lblVorOgRollaedenWährung, 2, 5);
+    	super.getGridPaneSonderwunsch().add(lblVorOgRollaedenWÃ¤hrung, 2, 5);
     	super.getGridPaneSonderwunsch().add(chckBxVorOgRollaeden, 3, 5);
     	
     	super.getGridPaneSonderwunsch().add(lblVorDgRollaeden, 0, 6);
     	super.getGridPaneSonderwunsch().add(preisVorDgRollaeden, 1, 6);
     	preisVorDgRollaeden.setText("190");
     	preisVorDgRollaeden.setEditable(false);
-    	super.getGridPaneSonderwunsch().add(lblVorDgRollaedenWährung, 2, 6);
+    	super.getGridPaneSonderwunsch().add(lblVorDgRollaedenWÃ¤hrung, 2, 6);
     	super.getGridPaneSonderwunsch().add(chckBxVorDgRollaeden, 3, 6);
     	
     	super.getGridPaneSonderwunsch().add(lblEgRollaeden, 0, 7);
     	super.getGridPaneSonderwunsch().add(preisEgRollaeden, 1, 7);
     	preisEgRollaeden.setText("990");
     	preisEgRollaeden.setEditable(false);
-    	super.getGridPaneSonderwunsch().add(lblEgRollaedenWährung, 2, 7);
+    	super.getGridPaneSonderwunsch().add(lblEgRollaedenWÃ¤hrung, 2, 7);
     	super.getGridPaneSonderwunsch().add(chckBxEgRollaeden, 3, 7);
     	
     	super.getGridPaneSonderwunsch().add(lblOgRollaeden, 0, 8);
     	super.getGridPaneSonderwunsch().add(preisOgRollaeden, 1, 8);
     	preisOgRollaeden.setText("990");
     	preisOgRollaeden.setEditable(false);
-    	super.getGridPaneSonderwunsch().add(lblOgRollaedenWährung, 2, 8);
+    	super.getGridPaneSonderwunsch().add(lblOgRollaedenWÃ¤hrung, 2, 8);
     	super.getGridPaneSonderwunsch().add(chckBxOgRollaeden, 3, 8);
     	
     	super.getGridPaneSonderwunsch().add(lblDgRollaeden, 0, 9);
     	super.getGridPaneSonderwunsch().add(preisDgRollaeden, 1, 9);
     	preisDgRollaeden.setText("990");
     	preisDgRollaeden.setEditable(false);
-    	super.getGridPaneSonderwunsch().add(lblDgRollaedenWährung, 2, 9);
+    	super.getGridPaneSonderwunsch().add(lblDgRollaedenWÃ¤hrung, 2, 9);
     	super.getGridPaneSonderwunsch().add(chckBxDgRollaeden, 3, 9);
 	}
 	
 	/**
-	 * macht das FensterAußentuerenView-Objekt sichtbar.
+	 * macht das FensterAuï¿½entuerenView-Objekt sichtbar.
 	 */
-	public void oeffneFensterAußentuerenView(){ 
+	public void oeffneFensterAuÃŸentuerenView(){ 
 		super.oeffneBasisView();
 	}
 	
-	private void leseFensterAußentuerenSonderwuensche(){
-    	this.fensterAußentuerenControl.leseFensterAußentuerenSonderwuensche();
+	private void leseFensterAuÃŸentuerenSonderwuensche(){
+    	this.fensterAuÃŸentuerenControl.leseFensterAuÃŸentuerenSonderwuensche();
 	}
 	
 	/* berechnet den Preis der ausgesuchten Sonderwuensche und zeigt diesen an */
@@ -159,71 +159,71 @@ public class FensterAußentuerenView extends BasisView {
 		// Es wird erst die Methode pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw)
   		// aus dem Control aufgerufen, dann der Preis berechnet.
 		
-		int preisFensterAußentueren = 0;
+		int preisFensterAuÃŸentueren = 0;
 		
 		int[] ausgewaehlteSw = new int[50];
 		
 		if (chckBxEGTuerTerasse.isSelected()) {
 			ausgewaehlteSw[31] = 1;
-			preisFensterAußentueren += 590;
+			preisFensterAuÃŸentueren += 590;
 		}
 		else ausgewaehlteSw[31] = 0;
 		
 		if (chckBxTuerDachTerasse.isSelected()) {
 			ausgewaehlteSw[32] = 1;
-			preisFensterAußentueren += 590;
+			preisFensterAuÃŸentueren += 590;
 		}
 		else ausgewaehlteSw[32] = 0;
 		
 		if (chckBxEinbruchschutz.isSelected()) {
 			ausgewaehlteSw[33] = 1;
-			preisFensterAußentueren += 690;
+			preisFensterAuÃŸentueren += 690;
 		}
 		else ausgewaehlteSw[33] = 0;
 		
 		if (chckBxVorEgRollaeden.isSelected()) {
 			ausgewaehlteSw[34] = 1;
-			preisFensterAußentueren += 190;
+			preisFensterAuÃŸentueren += 190;
 		}
 		else ausgewaehlteSw[34] = 0;
 		
 		if (chckBxVorOgRollaeden.isSelected()) {
 			ausgewaehlteSw[35] = 1;
-			preisFensterAußentueren += 190;
+			preisFensterAuÃŸentueren += 190;
 		}
 		else ausgewaehlteSw[35] = 0;
 		
 		if (chckBxVorDgRollaeden.isSelected()) {
 			ausgewaehlteSw[36] = 1;
-			preisFensterAußentueren += 190;
+			preisFensterAuÃŸentueren += 190;
 		}
 		else ausgewaehlteSw[36] = 0;
 		
 		if (chckBxEgRollaeden.isSelected()) {
 			ausgewaehlteSw[37] = 1;
-			preisFensterAußentueren += 990;
+			preisFensterAuÃŸentueren += 990;
 		}
 		else ausgewaehlteSw[37] = 0;
 		
 		if (chckBxOgRollaeden.isSelected()) {
 			ausgewaehlteSw[38] = 1;
-			preisFensterAußentueren += 990;
+			preisFensterAuÃŸentueren += 990;
 		}
 		else ausgewaehlteSw[38] = 0;
 		
 		if (chckBxDgRollaeden.isSelected()) {
 			ausgewaehlteSw[39] = 1;
-			preisFensterAußentueren += 990;
+			preisFensterAuÃŸentueren += 990;
 		}
 		else ausgewaehlteSw[39] = 0;
 		
 		
 		
 		
-		if (this.fensterAußentuerenControl.pruefeKonstellationSonderwuensche(ausgewaehlteSw)) { 
-			//System.out.println("Es findet noch keine Konstellationsüberprüfung statt");
+		if (this.fensterAuÃŸentuerenControl.pruefeKonstellationSonderwuensche(ausgewaehlteSw)) { 
+			//System.out.println("Es findet noch keine KonstellationsÃ¼berprÃ¼fung statt");
 			System.out.println("alle Angaben sind korrekt");
-			System.out.println("Gesamtpreis der Fenster und Außentueren :\t" + preisFensterAußentueren);
+			System.out.println("Gesamtpreis der Fenster und Auï¿½entueren :\t" + preisFensterAuÃŸentueren);
 		}
 		else System.out.println("Fehler in den Angaben");
 	}
