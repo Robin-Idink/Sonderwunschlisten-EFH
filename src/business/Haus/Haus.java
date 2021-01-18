@@ -12,7 +12,9 @@ public class Haus {
 	private boolean hatDachgeschoss;
 	private String hausnummer;
 	
-	
+	public Haus() {
+		
+	}
 	public Haus( String hausnummer,boolean hatDachgeschoss) {
 		this.hausnummer = hausnummer;
 		this.hatDachgeschoss = hatDachgeschoss;
@@ -38,37 +40,14 @@ public class Haus {
 	
 	
 	
-	public void inDatenbankSpeichern() throws SQLException {
-		Connection conn = new Datenbank().connect();
-		int dg ;
-		if(this.hatDachgeschoss==true)
-			dg =1;
-		else
-			dg=0;
 
-		String query = "INSERT INTO Haus (`hausnummer`,`mitDachgeschoss?`) VALUES (" + this.hausnummer + "," + dg + ");";
-		
-			
-		try (Statement statment = conn.createStatement()) {
-			// statment.executeQuery(query);
-			statment.execute(query);
-			conn.close();
-
-		} catch (SQLException ex) {
-			System.out.println("SQLException: " + ex.getMessage());
-			System.out.println("SQLState: " + ex.getSQLState());
-			System.out.println("VendorError: " + ex.getErrorCode());
-		}
-		
-		
-	}
 	
 	
-	public void getHausById(String hausnummer) {
+	public  void getHausById(String hausnummer) {
 		Datenbank db = new Datenbank();
 		Connection conn = db.connect();
 
-		String query = "Select * from Plan Where hausnummer='"+hausnummer+"'";
+		String query = "Select * from Haus where hausnummer='"+hausnummer+"'";
 		try (Statement statement = conn.createStatement()) {
 			ResultSet rs=statement.executeQuery(query);  
 			
@@ -88,7 +67,35 @@ public class Haus {
 		}
 
 	}
-
+	
+	public static boolean hatDachgeschoss(int hausnummer) throws Exception {
+		
+		if(hausnummer > 24 || hausnummer < 1) {
+			throw new Exception("Bitte wähle eine Hausnummer zwischen 1 und 24");
+		}
+		
+		Datenbank db = new Datenbank();
+		Connection conn = db.connect();
+		boolean hatDachgeschoss = false;
+		String query = "Select * from Haus where `hausnummer`="+hausnummer+" ;";
+		try (Statement statement = conn.createStatement()) {
+			ResultSet rs=statement.executeQuery(query);  
+			
+		while(rs.next()) { 
+			hatDachgeschoss = rs.getBoolean("mitDachgeschoss?");
+		}
+			rs.close();
+			conn.close();
+			
+		} catch (SQLException ex) {
+			System.out.println("SQLException: " + ex.getMessage());
+			System.out.println("SQLState: " + ex.getSQLState());
+			System.out.println("VendorError: " + ex.getErrorCode());
+		}
+		
+		return hatDachgeschoss;
+	}
+   
 
 
 }

@@ -1,5 +1,6 @@
 package gui.kunde;
 
+import business.Haus.Haus;
 import business.kunde.*;
 
 import javafx.geometry.*;
@@ -132,8 +133,10 @@ public class KundeView{
     	cmbBxNummerHaus.setOnAction(aEvent-> {
     		 holeInfoDachgeschoss();  
     		 leseKunden();
+    		 
      	});
        	btnAnlegen.setOnAction(aEvent-> {
+       		
  	        legeKundenAn();
 	    });
     	btnAendern.setOnAction(aEvent-> {
@@ -149,6 +152,7 @@ public class KundeView{
     	   	System.out.println("Nachname:" + kunde.getNachname());
     	   	System.out.println("Email:" + kunde.getEmail());
     	   	System.out.println("Telefon:" + kunde.getTelefonnummer());
+    	   
           
 	    });
       	mnItmGrundriss.setOnAction(aEvent-> {

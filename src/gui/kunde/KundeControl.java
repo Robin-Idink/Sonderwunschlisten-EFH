@@ -1,6 +1,8 @@
 package gui.kunde;
 
 import java.sql.SQLException;
+
+import business.Haus.Haus;
 import business.kunde.Kunde;
 import business.kunde.KundeModel;
 import gui.bilder.BilderControl;
@@ -33,6 +35,7 @@ public class KundeControl {
     public KundeControl(Stage primaryStage) { 
         this.kundeModel = KundeModel.getInstance(); 
         this.kundeView = new KundeView(this, primaryStage, kundeModel);
+       
     }
     
     /*

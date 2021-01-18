@@ -67,11 +67,12 @@ public final class KundeModel {
 	    throws SQLException, Exception{
         // Speicherung des Kunden in der DB	
    	    this.kunde = kunde;
+   	    kunde.inDatenbankSpeichern(); //die Methode kÃ¶nnte nÃ¼tzlich sein
    	    
    	    
-   	    //---------ergänzt:----------------------------------------------------------
+   	    //---------ergï¿½nzt:----------------------------------------------------------
    	    //DB Connection war noch nicht bereitgestellt
-   	    //je nach dem, evtl. so ähnlich: (oder auch anders):
+   	    //je nach dem, evtl. so ï¿½hnlich: (oder auch anders):
    	    
    	    /*
    	     ...
@@ -80,8 +81,8 @@ public final class KundeModel {
    	     
    	     */
    	    
-   	    //Vorübergehende Ausgabe:
-   	    System.out.println("Vorübergehende Ausgabe der Kundendaten: (im KundeModel)");
+   	    //Vorï¿½bergehende Ausgabe:
+   	    System.out.println("Vorï¿½bergehende Ausgabe der Kundendaten: (im KundeModel)");
    	    System.out.println("Vorname:" + kunde.getVorname());
 	   	System.out.println("Nachname:" + kunde.getNachname());
 	   	System.out.println("Email:" + kunde.getEmail());

@@ -1,5 +1,6 @@
 package gui;
 
+import business.Haus.Haus;
 import gui.kunde.KundeControl;
 
 import javafx.application.Application;
@@ -9,11 +10,14 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
+		
 		new KundeControl(primaryStage);
+		
 	}	
 	
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
+		
 		launch(args);
+		
 	}
 }
