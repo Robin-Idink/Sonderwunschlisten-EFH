@@ -31,6 +31,8 @@ public class Kunde {
 	 * 
 	 * public void setHausnummer(int hausnummer) { this.hausnummer = hausnummer; }
 	 */
+	
+	// TODO Methode für Abfrage ob Dachgeschoss vorhanden ist
 
 	public String getVorname() {
 		return vorname;

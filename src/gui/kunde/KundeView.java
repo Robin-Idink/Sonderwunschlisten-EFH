@@ -188,6 +188,7 @@ public class KundeView{
          kunde.setNachname(txtNachname.getText());
          //kunde.setHausnummer(txtHausnummer.getText());
          kunde.setTelefonnummer(txtTelefon.getText());
+         //TODO Kundennummer hinzufügen
          
          if(txtKundenNr.getText().isEmpty() || txtVorname.getText().isEmpty() || txtNachname.getText().isEmpty() || txtTelefon.getText().isEmpty() || txtEmail.getText().isEmpty()) {
 	        	Alert alert = new Alert(AlertType.ERROR);
