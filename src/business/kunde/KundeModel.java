@@ -82,7 +82,7 @@ public final class KundeModel {
    	     */
    	    
    	    //Vor�bergehende Ausgabe:
-   	    System.out.println("Vor�bergehende Ausgabe der Kundendaten: (im KundeModel)");
+   	    System.out.println("Voruebergehende Ausgabe der Kundendaten: (im KundeModel)");
    	    System.out.println("Vorname:" + kunde.getVorname());
 	   	System.out.println("Nachname:" + kunde.getNachname());
 	   	System.out.println("Email:" + kunde.getEmail());
