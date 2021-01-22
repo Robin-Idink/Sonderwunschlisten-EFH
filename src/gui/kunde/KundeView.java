@@ -1,6 +1,6 @@
 package gui.kunde;
 
-import business.Haus.Haus;
+
 import business.kunde.*;
 
 import javafx.geometry.*;

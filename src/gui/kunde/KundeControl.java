@@ -2,7 +2,7 @@ package gui.kunde;
 
 import java.sql.SQLException;
 
-import business.Haus.Haus;
+
 import business.kunde.Kunde;
 import business.kunde.KundeModel;
 import gui.bilder.BilderControl;
