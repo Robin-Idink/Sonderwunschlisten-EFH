@@ -47,6 +47,10 @@ public final class KundeModel {
 		return "Verwaltung der Sonderwunschlisten";
 	}
 	
+	public Kunde getKunde() {
+		return this.kunde;
+	}
+	
 	/**
 	 * gibt saemtliche Plannummern der Haeuser des Baugebiets heraus.
 	 * @return ObservableList<Integer> , enthaelt saemtliche Plannummern der Haeuser

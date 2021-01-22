@@ -37,25 +37,21 @@ public final class GrundrissControl {
 		this.grundrissView.oeffneGrundrissView();
 	}
 
-	public void leseGrundrissSonderwuensche() {
-
-	}
-
 	public boolean pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw) {
-
-//		
+		// TODO Zugriff auf Sonderwuensche Ã¼ber KundeModel.getInstance().getKunde().getSonderwuensche()
+		// TODO Zugriff auf Dachgeschoss Boolean Ã¼ber KundeModel.getInstance().getKunde().hatDachgeschoss()		
 
 		boolean result = false;
 		
 		boolean dachgeschoss = true;
 	
 
-		//Überprüfung der Konstellation der Ausgewählten Sonderwünsche
+		//ï¿½berprï¿½fung der Konstellation der Ausgewï¿½hlten Sonderwï¿½nsche
 		
 		try {
 			
 			
-			//Prüfung der 2.x Sonderwünsche
+			//Prï¿½fung der 2.x Sonderwï¿½nsche
 			
 			for (int i = 21; i < 27; i++) {
 				switch (i) {
@@ -63,7 +59,7 @@ public final class GrundrissControl {
 				case 21:
 					if(ausgewaehlteSw[21] == 1) {
 						result = true;
-//						System.out.println("Sie haben SW 2.1 ausgewählt!");
+//						System.out.println("Sie haben SW 2.1 ausgewï¿½hlt!");
 						break;
 					}else {
 						break;
@@ -72,16 +68,16 @@ public final class GrundrissControl {
 				case 22:
 					if (ausgewaehlteSw[21] == 1) {
 						result = true;
-//						System.out.println("Sie haben SW 2.2 ausgewählt!");
+//						System.out.println("Sie haben SW 2.2 ausgewï¿½hlt!");
 						break;
 					}else { 
-						throw new Exception("\n2.2 kann nur ausgewählt werden wenn 2.1 auch ausgewählt wurde!");
+						throw new Exception("\n2.2 kann nur ausgewï¿½hlt werden wenn 2.1 auch ausgewï¿½hlt wurde!");
 					}
 
 				case 23:
 					if(ausgewaehlteSw[23] == 1) {
 						result = true;
-//						System.out.println("Sie haben SW 2.3 ausgewählt!");
+//						System.out.println("Sie haben SW 2.3 ausgewï¿½hlt!");
 						break;
 					}else {
 						break;
@@ -90,7 +86,7 @@ public final class GrundrissControl {
 				case 24:
 					if (dachgeschoss && ausgewaehlteSw[24] == 1) {
 						result = true;
-//						System.out.println("Sie haben SW 2.4 ausgewählt!");
+//						System.out.println("Sie haben SW 2.4 ausgewï¿½hlt!");
 						break;
 					}else { 
 						break;
@@ -99,7 +95,7 @@ public final class GrundrissControl {
 				case 25:
 					if (dachgeschoss && ausgewaehlteSw[25] == 1) {
 						result = true;
-//						System.out.println("Sie haben SW 2.5 ausgewählt!");
+//						System.out.println("Sie haben SW 2.5 ausgewï¿½hlt!");
 						break;
 					}else { 
 						break;
@@ -111,7 +107,7 @@ public final class GrundrissControl {
 							result = true;
 							break;
 						}else { 
-							throw new Exception("\n2.6 kann nur ausgewählt werden wenn 2.5 auch ausgewählt wurde!");
+							throw new Exception("\n2.6 kann nur ausgewï¿½hlt werden wenn 2.5 auch ausgewï¿½hlt wurde!");
 						}
 					}else {
 						break;
@@ -124,7 +120,7 @@ public final class GrundrissControl {
 		} catch (Exception e) {
 
 			result = false;
-			System.out.println("Sonderwünsche sind nicht kompatibel!" + e.getMessage());
+			System.out.println("Sonderwï¿½nsche sind nicht kompatibel!" + e.getMessage());
 
 		}
 

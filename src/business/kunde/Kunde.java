@@ -7,6 +7,7 @@ import business.database.Datenbank;
 public class Kunde {
 
 	private int hausnummer;
+	private int[] sonderwuensche;
 	private String vorname;
 	private String nachname;
 	private String telefonnummer;
@@ -33,8 +34,6 @@ public class Kunde {
 	 * public void setHausnummer(int hausnummer) { this.hausnummer = hausnummer; }
 	 */
 
-	// TODO Methode für Abfrage ob Dachgeschoss vorhanden ist
-
 	public int getHausnummer() {
 		return this.hausnummer;
 	}
@@ -42,7 +41,19 @@ public class Kunde {
 	public void setHausnummer(int hausnummer) {
 		this.hausnummer = hausnummer;
 	}
-
+	
+	public int[] getSonderwuensche() {
+		return this.sonderwuensche;
+	}
+	
+	
+	// TODO Methode zum Laden der Sonderwuensche bei Aufruf des Kunden
+	
+	public void setSonderwuensche(int[] sonderwuensche) {
+		this.sonderwuensche = sonderwuensche;
+	}
+	
+	
 	public String getVorname() {
 		return vorname;
 	}
@@ -99,6 +110,7 @@ public class Kunde {
 		conn.close();
 	}
 
+	
 	public void inDatenbankSpeichern() throws Exception {
 		Connection conn = new Datenbank().connect();
 
@@ -127,6 +139,8 @@ public class Kunde {
 		}
 
 	}
+	
+	// TODO Methode speichereSonderwuensche()
 
 	public boolean hatDachgeschoss() throws Exception {
 

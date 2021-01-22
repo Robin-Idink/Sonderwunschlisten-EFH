@@ -1,6 +1,5 @@
 package gui.kunde;
 
-import business.Haus.Haus;
 import business.kunde.*;
 
 import javafx.geometry.*;
@@ -173,9 +172,11 @@ public class KundeView{
     }
     
     private void holeInfoDachgeschoss(){ 
+    	// TODO 
     }
     
     private void leseKunden(){
+    	// TODO
     }
     
     private void legeKundenAn(){
@@ -203,7 +204,7 @@ public class KundeView{
    	}
     
   	private void aendereKunden(){
-      
+      // TODO
    	    
    	}
     
