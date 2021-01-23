@@ -58,7 +58,6 @@ public class GrundrissView extends BasisView{
         grundrissStage.setTitle("Sonderw�nsche zu Grundriss-Varianten");
                 
 	    this.initKomponenten();
-	    this.leseGrundrissSonderwuensche();
     }
   
     /* initialisiert die Steuerelemente auf der Maske */
@@ -116,15 +115,13 @@ public class GrundrissView extends BasisView{
 		super.oeffneBasisView();
 	}
     
-    private void leseGrundrissSonderwuensche(){
-    	
-    	this.grundrissControl.leseGrundrissSonderwuensche();
-    }
-    
  	/* berechnet den Preis der ausgesuchten Sonderwuensche und zeigt diesen an */
   	protected void berechneUndZeigePreisSonderwuensche(){
   		// Es wird erst die Methode pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw)
   		// aus dem Control aufgerufen, dann der Preis berechnet.
+  		
+		// TODO Zugriff auf Sonderwuensche über KundeModel.getInstance().getKunde().getSonderwuensche()
+		// TODO Zugriff auf Dachgeschoss Boolean über KundeModel.getInstance().getKunde().hatDachgeschoss()	
   		
   		int preisGrundriss = 0;
 		
@@ -180,6 +177,10 @@ public class GrundrissView extends BasisView{
   	protected void speichereSonderwuensche(){
  		// Es wird erst die Methode pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw)
   		// aus dem Control aufgerufen, dann die Sonderwuensche gespeichert.
+
+		// Speichern über Methode KundeModel.getInstance().getKunde().speichereSonderwuensche()
+  		
+  		// TODO
   	}
   	
  	

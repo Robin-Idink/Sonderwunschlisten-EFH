@@ -1,6 +1,9 @@
 package gui.kunde;
 
-import business.Haus.Haus;
+
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 import business.kunde.*;
 
 import javafx.geometry.*;
@@ -11,10 +14,17 @@ import javafx.scene.layout.*;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 /**
  * Klasse, welche das Grundfenster mit den Kundendaten bereitstellt.
  */
 public class KundeView{
+	
  
 	// das Control-Objekt des Grundfensters mit den Kundendaten
 	private KundeControl kundeControl;
@@ -43,6 +53,7 @@ public class KundeView{
     private Button btnAendern 	      	= new Button("Ändern");
     private Button btnLoeschen 	 		= new Button("Löschen");
     private Button btnSuche 	 		= new Button("Suche");
+    private Button btnBilder 	 		= new Button("Bilder vom Haus");
     private MenuBar mnBar 			  	= new MenuBar();
     private Menu mnSonderwuensche    	= new Menu("Sonderwünsche");
     private MenuItem mnItmGrundriss  	= new MenuItem("Grundrissvarianten");
@@ -63,7 +74,7 @@ public class KundeView{
         this.kundeModel = kundeModel;
         
         primaryStage.setTitle(this.kundeModel.getUeberschrift());	
-	    Scene scene = new Scene(borderPane, 700, 500);
+	    Scene scene = new Scene(borderPane, 900, 600);
 	    primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -119,6 +130,8 @@ public class KundeView{
 	    btnLoeschen.setMinSize(150,  25);
 	    gridPane.add(btnSuche, 3, 13);
 	    btnSuche.setMinSize(150,  25);
+	    gridPane.add(btnBilder, 4, 13);
+	    btnBilder.setMinSize(150,  25);
 	    // MenuBar und Menu
 	    borderPane.setTop(mnBar);
 	    mnBar.getMenus().add(mnSonderwuensche);
@@ -155,6 +168,28 @@ public class KundeView{
     	   
           
 	    });
+       
+	    btnBilder.setOnAction(aEvent-> {
+	    	Image image;
+	       	Kunde dachgeschoss = new Kunde();
+	       	try {
+				if(dachgeschoss.hatDachgeschoss()) {
+					File image1 = new File("dg.jpg");  
+				}
+			} catch (Exception e) {
+					e.printStackTrace();
+			}
+	       	try {
+				if(dachgeschoss.hatDachgeschoss()) {
+					File image2 = new File("ohneDG.jpg");  
+				}
+			} catch (Exception e) {
+					e.printStackTrace();
+			}
+	       	
+	    });
+		
+  
       	mnItmGrundriss.setOnAction(aEvent-> {
  	        kundeControl.oeffneGrundrissControl(); 
 	    });
@@ -173,9 +208,11 @@ public class KundeView{
     }
     
     private void holeInfoDachgeschoss(){ 
+    	// TODO 
     }
     
     private void leseKunden(){
+    	// TODO
     }
     
     private void legeKundenAn(){
@@ -203,7 +240,7 @@ public class KundeView{
    	}
     
   	private void aendereKunden(){
-      
+      // TODO
    	    
    	}
     

@@ -23,10 +23,9 @@ public final class FensterAußentuerenControl {
 		this.fensterAußentuerenView.oeffneFensterAußentuerenView();
 	}
 	
-	public void leseFensterAußentuerenSonderwuensche(){
-    } 
-	
 	public boolean pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw){
+		// TODO Zugriff auf Sonderwuensche über KundeModel.getInstance().getKunde().getSonderwuensche()
+		// TODO Zugriff auf Dachgeschoss Boolean über KundeModel.getInstance().getKunde().hatDachgeschoss()	
 		
 		
 		boolean result = false;

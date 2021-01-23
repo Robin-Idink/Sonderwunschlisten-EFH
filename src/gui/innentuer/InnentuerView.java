@@ -15,25 +15,25 @@ public class InnentuerView extends BasisView{
 
 	//---Anfang Attribute der grafischen Oberflaeche---
 	
-	// F40 4.1) Mehrpreis für die Ausführung eines Glasausschnitts (Klarglas) in einer Innentür
+	// F40 4.1) Mehrpreis fï¿½r die Ausfï¿½hrung eines Glasausschnitts (Klarglas) in einer Innentï¿½r
     private Label lblTuerKlarglas
-        = new Label("Mehrpreis für die Ausführung eines Glasausschnitts (Klarglas) in einer Innentür");
+        = new Label("Mehrpreis fï¿½r die Ausfï¿½hrung eines Glasausschnitts (Klarglas) in einer Innentï¿½r");
     private TextField txtPreisTuerKlarglas 	= new TextField();
-    private Label lblTuerKlarglasEuro 	= new Label(",- Euro je Tür");
+    private Label lblTuerKlarglasEuro 	= new Label(",- Euro je Tï¿½r");
     private TextField chckTuerKlarglas 	= new TextField();
 
-	// F40 4.2) Mehrpreis für die Ausführung eines Glasausschnitts (Milchglas) in einer Innentür
+	// F40 4.2) Mehrpreis fï¿½r die Ausfï¿½hrung eines Glasausschnitts (Milchglas) in einer Innentï¿½r
     private Label lblTuerMilchglas
-        = new Label("Mehrpreis für die Ausführung eines Glasausschnitts (Milchglas) in einer Innentür");
+        = new Label("Mehrpreis fï¿½r die Ausfï¿½hrung eines Glasausschnitts (Milchglas) in einer Innentï¿½r");
     private TextField txtPreisTuerMilchglas 	= new TextField();
-    private Label lblTuerMilchglasEuro	= new Label(",- Euro je Tür");
+    private Label lblTuerMilchglasEuro	= new Label(",- Euro je Tï¿½r");
     private TextField chckTuerMilchglas	= new TextField();
 
-	// F40 4.1) Innentür zur Garage als Holztür
+	// F40 4.1) Innentï¿½r zur Garage als Holztï¿½r
     private Label lblHolztuerGarage
-        = new Label("Innentür zur Garage als Holztür");
+        = new Label("Innentï¿½r zur Garage als Holztï¿½r");
     private TextField txtPreisHolztuerGarage 	= new TextField();
-    private Label lblHolztuerGarageEuro		= new Label(",- Euro je Tür");
+    private Label lblHolztuerGarageEuro		= new Label(",- Euro je Tï¿½r");
     private TextField chckHolztuerGarage 	= new TextField();
 
     //-------Ende Attribute der grafischen Oberflaeche-------
@@ -47,16 +47,15 @@ public class InnentuerView extends BasisView{
     public InnentuerView (InnentuerControl innentuerControl, Stage innentuerStage){
     	super(innentuerStage);
         this.innentuerControl = innentuerControl;
-        innentuerStage.setTitle("Sonderwünsche zu Innentuer-Varianten");
+        innentuerStage.setTitle("Sonderwï¿½nsche zu Innentuer-Varianten");
 
 	    this.initKomponenten();
-	    this.leseInnentuerSonderwuensche();
     }
 
     /* initialisiert die Steuerelemente auf der Maske */
 	protected void initKomponenten() {
 		super.initKomponenten();
-       	super.getLblSonderwunsch().setText("Innentür-Varianten");
+       	super.getLblSonderwunsch().setText("Innentï¿½r-Varianten");
        	// F40 4.1)
        	super.getGridPaneSonderwunsch().add(lblTuerKlarglas, 0, 1);
     	super.getGridPaneSonderwunsch().add(txtPreisTuerKlarglas, 1, 1);
@@ -81,22 +80,21 @@ public class InnentuerView extends BasisView{
 	}
 
 	 /**
-	 * macht das Innentür-Objekt sichtbar.
+	 * macht das Innentï¿½r-Objekt sichtbar.
 	 */
 	public void oeffneInnentuerView(){
 		super.oeffneBasisView();
 	}
-
-    private void leseInnentuerSonderwuensche(){
-    	
-    	this.innentuerControl.leseInnentuerSonderwuensche();
-    }
 
 	@Override
 	protected void berechneUndZeigePreisSonderwuensche() {
 
 		// Es wird erst die Methode pruefeKonstellationSonderwuensche(int[])
   		// aus dem Control aufgerufen, dann der Preis berechnet.
+		
+		// TODO Zugriff auf Sonderwuensche Ã¼ber KundeModel.getInstance().getKunde().getSonderwuensche()
+		// TODO Zugriff auf Dachgeschoss Boolean Ã¼ber KundeModel.getInstance().getKunde().hatDachgeschoss()	
+		
 		
 		int anzahlTuerKlarglas = Integer.parseInt(chckTuerKlarglas.getText());
 		int anzahlTuerMilchglas = Integer.parseInt(chckTuerMilchglas.getText());
@@ -110,11 +108,11 @@ public class InnentuerView extends BasisView{
 		preisInnentueren = anzahlTuerKlarglas * 460 + anzahlTuerMilchglas * 560 + anzahlHolztuerGarage * 660;
 		
 		if (this.innentuerControl.pruefeKonstellationSonderwuensche(ausgewaehlteSw)) { 
-			//System.out.println("Es findet noch keine Konstellationsüberprüfung statt");
-			System.out.println("alle Angaben bzgl. der Anzahl der Innentüren sind korrekt");
-			System.out.println("Gesamtpreis der Innentüren :\t" + preisInnentueren);
+			//System.out.println("Es findet noch keine Konstellationsï¿½berprï¿½fung statt");
+			System.out.println("alle Angaben bzgl. der Anzahl der Innentï¿½ren sind korrekt");
+			System.out.println("Gesamtpreis der Innentï¿½ren :\t" + preisInnentueren);
 		}
-		else System.out.println("Fehler in den Anzahl Angaben der Innentüren");
+		else System.out.println("Fehler in den Anzahl Angaben der Innentï¿½ren");
 		
 		
 	}
@@ -122,7 +120,12 @@ public class InnentuerView extends BasisView{
 
 	@Override
 	protected void speichereSonderwuensche() {
-		// TODO Auto-generated method stub
+ 		// Es wird erst die Methode pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw)
+  		// aus dem Control aufgerufen, dann die Sonderwuensche gespeichert.
+		
+		// Speichern Ã¼ber Methode KundeModel.getInstance().getKunde().speichereSonderwuensche()
+		
+  		// TODO
 	}
 	
 }

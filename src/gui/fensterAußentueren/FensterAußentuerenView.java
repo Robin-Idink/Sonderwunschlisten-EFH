@@ -70,7 +70,6 @@ public class FensterAußentuerenView extends BasisView {
 		fensterAußentuerenStage.setTitle("Sonderwünsche zu Fenstern und Au�ent�ren");
 		
 		this.initKomponenten();
-		this.leseFensterAußentuerenSonderwuensche();
 		
 	}
 	
@@ -150,14 +149,15 @@ public class FensterAußentuerenView extends BasisView {
 		super.oeffneBasisView();
 	}
 	
-	private void leseFensterAußentuerenSonderwuensche(){
-    	this.fensterAußentuerenControl.leseFensterAußentuerenSonderwuensche();
-	}
-	
 	/* berechnet den Preis der ausgesuchten Sonderwuensche und zeigt diesen an */
 	protected void berechneUndZeigePreisSonderwuensche() {
 		// Es wird erst die Methode pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw)
   		// aus dem Control aufgerufen, dann der Preis berechnet.
+		
+		
+		// TODO Zugriff auf Sonderwuensche über KundeModel.getInstance().getKunde().getSonderwuensche()
+		// TODO Zugriff auf Dachgeschoss Boolean über KundeModel.getInstance().getKunde().hatDachgeschoss()	
+		
 		
 		int preisFensterAußentueren = 0;
 		
@@ -232,6 +232,10 @@ public class FensterAußentuerenView extends BasisView {
 	protected void speichereSonderwuensche() {
 		// Es wird erst die Methode pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw)
   		// aus dem Control aufgerufen, dann die Sonderwuensche gespeichert.
+		
+		// Speichern über Methode KundeModel.getInstance().getKunde().speichereSonderwuensche()
+		
+  		// TODO
 
 	}
 

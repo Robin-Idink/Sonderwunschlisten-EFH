@@ -18,9 +18,9 @@ public final class InnentuerControl {
 
 	/**
 	 * erzeugt ein ControlObjekt inklusive View-Objekt und Model-Objekt zum Fenster
-	 * fuer die Sonderwuensche zu den Innentüren.
+	 * fuer die Sonderwuensche zu den Innentï¿½ren.
 	 * 
-	 * @param innentuerStage, Stage fuer das View-Objekt zu den Sonderwuenschen zu den Innentüren
+	 * @param innentuerStage, Stage fuer das View-Objekt zu den Sonderwuenschen zu den Innentï¿½ren
 	 */
 	public InnentuerControl(KundeModel kundeModel) {
 		Stage stageInnentuer = new Stage();
@@ -39,13 +39,11 @@ public final class InnentuerControl {
 		this.innentuerView.oeffneInnentuerView();
 	}
 
-	public void leseInnentuerSonderwuensche() {
-	}
-
 	public int berechneMaxAnzahlTueren(int[] ausgewaehlteSw) {
+		// TODO Zugriff auf Sonderwuensche Ã¼ber KundeModel.getInstance().getKunde().getSonderwuensche()
+		// TODO Zugriff auf Dachgeschoss Boolean Ã¼ber KundeModel.getInstance().getKunde().hatDachgeschoss()	
 		
-		
-		//Berechnung der maximalen Anzahl der möglichen Türen, basierend auf dem Grundriss und den ausgewählten Sonderwünschen
+		//Berechnung der maximalen Anzahl der mï¿½glichen Tï¿½ren, basierend auf dem Grundriss und den ausgewï¿½hlten Sonderwï¿½nschen
 		int maxAnzahlTueren = 0;
 		
 		boolean dachgeschoss = true;
@@ -72,6 +70,9 @@ public final class InnentuerControl {
 		
 	}
 	public boolean pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw) {
+		// TODO Zugriff auf Sonderwuensche Ã¼ber KundeModel.getInstance().getKunde().getSonderwuensche()
+		// TODO Zugriff auf Dachgeschoss Boolean Ã¼ber KundeModel.getInstance().getKunde().hatDachgeschoss()	
+		
 		/*
 		wobei gilt:
 		ausgewaehlteSw[41] = anzahlTuerKlarglas
@@ -79,26 +80,26 @@ public final class InnentuerControl {
 		ausgewaehlteSw[43] = anzahlHolztuerGarage
 		 */
 		
-		//Hier muss die Anzahl der eingegebenen Türen überprüft werden.
+		//Hier muss die Anzahl der eingegebenen Tï¿½ren ï¿½berprï¿½ft werden.
 		//Unterschieden wird zwischen Keller, EG, OG und DG.
 		
 		boolean dachgeschoss = true;
 		boolean result = true;
-		//Prüfung der 4.x Sonderwünsche
+		//Prï¿½fung der 4.x Sonderwï¿½nsche
 		
 		try {
-			//Fehlermeldung falls die Summer der ausgewählten Türen in 4.1 und 4.2 die maximal Anzahl überschreitet
+			//Fehlermeldung falls die Summer der ausgewï¿½hlten Tï¿½ren in 4.1 und 4.2 die maximal Anzahl ï¿½berschreitet
 			if(ausgewaehlteSw[41]+ausgewaehlteSw[42] > berechneMaxAnzahlTueren(ausgewaehlteSw))
-				throw new Exception("\n Die Anzahl der Ausgewählten Türen überschreitet die maximale Anzahl der möglichen Türen!");
+				throw new Exception("\n Die Anzahl der Ausgewï¿½hlten Tï¿½ren ï¿½berschreitet die maximale Anzahl der mï¿½glichen Tï¿½ren!");
 			
-			//Fehlermeldung falls 4.3 ausgewählt wird obwohl es kein Dachgeschoss gibt
+			//Fehlermeldung falls 4.3 ausgewï¿½hlt wird obwohl es kein Dachgeschoss gibt
 			if(ausgewaehlteSw[43]==1)
 				if(!dachgeschoss)
-					throw new Exception("\n 4.3 kann nur ausgewählt werden wenn auch ein Dachgeschoss vorhanden ist!");
+					throw new Exception("\n 4.3 kann nur ausgewï¿½hlt werden wenn auch ein Dachgeschoss vorhanden ist!");
 		
 		}catch(Exception e) {
 				result = false;
-				System.out.println("Sonderwünsche sind nicht kompatibel!" + e.getMessage());
+				System.out.println("Sonderwï¿½nsche sind nicht kompatibel!" + e.getMessage());
 
 		}
 		return result;
