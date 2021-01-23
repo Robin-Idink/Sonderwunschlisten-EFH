@@ -1,6 +1,6 @@
 package gui;
 
-import business.Haus.Haus;
+
 import gui.kunde.KundeControl;
 
 import javafx.application.Application;
