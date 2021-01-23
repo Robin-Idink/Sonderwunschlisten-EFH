@@ -15,35 +15,35 @@ public class GrundrissView extends BasisView{
    
     //---Anfang Attribute der grafischen Oberflaeche---
 	private Label lblWandKueche    	     
-    = new Label("Wand zur Abtrennung der K�che von dem Essbereich");
+    = new Label("Wand zur Abtrennung der Kueche von dem Essbereich");
 	private Label lblTuerWandKueche    	     
-	= new Label("T�r in der Wand zwischen K�che und Essbereich");
-	private Label lblGroßesZimmer    	     
-	= new Label("Gro�es Zimmer anstatt zwei kleinen");
+	= new Label("Tuer in der Wand zwischen Kueche und Essbereich");
+	private Label lblGrossesZimmer    	     
+	= new Label("Grosses Zimmer anstatt zwei kleinen");
 	private Label lblTreppenraum    	     
 	= new Label("abgetrennter Treppenraum");
 	private Label lblVorrichtungBadDachgeschoss    	     
 	= new Label("Vorrichtung eines Bades im DG");
-	private Label lblAusführungBadDachgeschoss   	     
-	= new Label("Ausf�hrung eines Bades im DG");
+	private Label lblAusfuehrungBadDachgeschoss   	     
+	= new Label("Ausfuehrung eines Bades im DG");
 	private TextField txtPreisWandKueche 	= new TextField();
 	private TextField txtPreisTuerWandKueche 	= new TextField();
-	private TextField txtPreisGroßesZimmer 	= new TextField();
+	private TextField txtPreisGrossesZimmer 	= new TextField();
 	private TextField txtPreisTreppenraum 	= new TextField();
 	private TextField txtPreisVorrichtungBadDachgeschoss 	= new TextField();
-	private TextField txtPreisAusführungBadDachgeschoss 	= new TextField();
+	private TextField txtPreisAusfuehrungBadDachgeschoss 	= new TextField();
 	private Label lblWandKuecheEuro 		= new Label("Euro");
 	private Label lblTuerWandKuecheEuro 		= new Label("Euro");
-	private Label lblGroßesZimmerEuro 		= new Label("Euro");
+	private Label lblGrossesZimmerEuro 		= new Label("Euro");
 	private Label lblTreppenraumEuro 		= new Label("Euro");
 	private Label lblVorrichtungBadDachgeschossEuro 		= new Label("Euro");
-	private Label lblAusführungBadDachgeschossEuro 		= new Label("Euro");
+	private Label lblAusfuehrungBadDachgeschossEuro 		= new Label("Euro");
 	private CheckBox chckBxWandKueche 		= new CheckBox();
 	private CheckBox chckBxTuerWandKueche 		= new CheckBox();
-	private CheckBox chckBxGroßesZimmer 		= new CheckBox();
+	private CheckBox chckBxGrossesZimmer 		= new CheckBox();
 	private CheckBox chckBxTreppenraum 		= new CheckBox();
 	private CheckBox chckBxVorrichtungBadDachgeschoss 		= new CheckBox();
-	private CheckBox chckBxAusführungBadDachgeschoss 		= new CheckBox();
+	private CheckBox chckBxAusfuehrungBadDachgeschoss 		= new CheckBox();
     //-------Ende Attribute der grafischen Oberflaeche-------
   
     /**
@@ -55,7 +55,7 @@ public class GrundrissView extends BasisView{
     public GrundrissView (GrundrissControl grundrissControl, Stage grundrissStage){
     	super(grundrissStage);
         this.grundrissControl = grundrissControl;
-        grundrissStage.setTitle("Sonderw�nsche zu Grundriss-Varianten");
+        grundrissStage.setTitle("Sonderwuensche zu Grundriss-Varianten");
                 
 	    this.initKomponenten();
     }
@@ -79,12 +79,12 @@ public class GrundrissView extends BasisView{
     	super.getGridPaneSonderwunsch().add(lblTuerWandKuecheEuro, 2, 2);
     	super.getGridPaneSonderwunsch().add(chckBxTuerWandKueche, 3, 2);
     	
-    	super.getGridPaneSonderwunsch().add(lblGroßesZimmer, 0, 3);
-    	super.getGridPaneSonderwunsch().add(txtPreisGroßesZimmer, 1, 3);
-    	txtPreisGroßesZimmer.setText("0");
-    	txtPreisGroßesZimmer.setEditable(false);
-    	super.getGridPaneSonderwunsch().add(lblGroßesZimmerEuro, 2, 3);
-    	super.getGridPaneSonderwunsch().add(chckBxGroßesZimmer, 3, 3);
+    	super.getGridPaneSonderwunsch().add(lblGrossesZimmer, 0, 3);
+    	super.getGridPaneSonderwunsch().add(txtPreisGrossesZimmer, 1, 3);
+    	txtPreisGrossesZimmer.setText("0");
+    	txtPreisGrossesZimmer.setEditable(false);
+    	super.getGridPaneSonderwunsch().add(lblGrossesZimmerEuro, 2, 3);
+    	super.getGridPaneSonderwunsch().add(chckBxGrossesZimmer, 3, 3);
     	
     	super.getGridPaneSonderwunsch().add(lblTreppenraum, 0, 4);
     	super.getGridPaneSonderwunsch().add(txtPreisTreppenraum, 1, 4);
@@ -100,12 +100,12 @@ public class GrundrissView extends BasisView{
     	super.getGridPaneSonderwunsch().add(lblVorrichtungBadDachgeschossEuro, 2, 5);
     	super.getGridPaneSonderwunsch().add(chckBxVorrichtungBadDachgeschoss, 3, 5);
     	
-    	super.getGridPaneSonderwunsch().add(lblAusführungBadDachgeschoss, 0, 6);
-    	super.getGridPaneSonderwunsch().add(txtPreisAusführungBadDachgeschoss, 1, 6);
-    	txtPreisAusführungBadDachgeschoss.setText("8.990");
-    	txtPreisAusführungBadDachgeschoss.setEditable(false);
-    	super.getGridPaneSonderwunsch().add(lblAusführungBadDachgeschossEuro, 2, 6);
-    	super.getGridPaneSonderwunsch().add(chckBxAusführungBadDachgeschoss, 3, 6);
+    	super.getGridPaneSonderwunsch().add(lblAusfuehrungBadDachgeschoss, 0, 6);
+    	super.getGridPaneSonderwunsch().add(txtPreisAusfuehrungBadDachgeschoss, 1, 6);
+    	txtPreisAusfuehrungBadDachgeschoss.setText("8.990");
+    	txtPreisAusfuehrungBadDachgeschoss.setEditable(false);
+    	super.getGridPaneSonderwunsch().add(lblAusfuehrungBadDachgeschossEuro, 2, 6);
+    	super.getGridPaneSonderwunsch().add(chckBxAusfuehrungBadDachgeschoss, 3, 6);
     }  
     
     /**
@@ -120,8 +120,8 @@ public class GrundrissView extends BasisView{
   		// Es wird erst die Methode pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw)
   		// aus dem Control aufgerufen, dann der Preis berechnet.
   		
-		// TODO Zugriff auf Sonderwuensche über KundeModel.getInstance().getKunde().getSonderwuensche()
-		// TODO Zugriff auf Dachgeschoss Boolean über KundeModel.getInstance().getKunde().hatDachgeschoss()	
+		// TODO Zugriff auf Sonderwuensche ueber KundeModel.getInstance().getKunde().getSonderwuensche()
+		// TODO Zugriff auf Dachgeschoss Boolean ueber KundeModel.getInstance().getKunde().hatDachgeschoss()	
   		
   		int preisGrundriss = 0;
 		
@@ -139,7 +139,7 @@ public class GrundrissView extends BasisView{
 		}
 		else ausgewaehlteSw[22] = 0;
 		
-		if (chckBxGroßesZimmer.isSelected()) {
+		if (chckBxGrossesZimmer.isSelected()) {
 			ausgewaehlteSw[23] = 1;
 			preisGrundriss += 0;
 		}
@@ -157,7 +157,7 @@ public class GrundrissView extends BasisView{
 		}
 		else ausgewaehlteSw[25] = 0;
 		
-		if (chckBxAusführungBadDachgeschoss.isSelected()) {
+		if (chckBxAusfuehrungBadDachgeschoss.isSelected()) {
 			ausgewaehlteSw[26] = 1;
 			preisGrundriss += 8990;
 		}
@@ -178,7 +178,7 @@ public class GrundrissView extends BasisView{
  		// Es wird erst die Methode pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw)
   		// aus dem Control aufgerufen, dann die Sonderwuensche gespeichert.
 
-		// Speichern über Methode KundeModel.getInstance().getKunde().speichereSonderwuensche()
+		// Speichern ueber Methode KundeModel.getInstance().getKunde().speichereSonderwuensche()
   		
   		// TODO
   	}

@@ -50,15 +50,15 @@ public class KundeView{
     private TextField txtEmail	    	= new TextField();  
     private TextField txtKundenNr		= new TextField();
     private Button btnAnlegen	 	  	= new Button("Anlegen");
-    private Button btnAendern 	      	= new Button("Ändern");
-    private Button btnLoeschen 	 		= new Button("Löschen");
+    private Button btnAendern 	      	= new Button("aendern");
+    private Button btnLoeschen 	 		= new Button("Loeschen");
     private Button btnSuche 	 		= new Button("Suche");
     private Button btnBilder 	 		= new Button("Bilder vom Haus");
     private MenuBar mnBar 			  	= new MenuBar();
-    private Menu mnSonderwuensche    	= new Menu("Sonderwünsche");
+    private Menu mnSonderwuensche    	= new Menu("Sonderwuensche");
     private MenuItem mnItmGrundriss  	= new MenuItem("Grundrissvarianten");
     private MenuItem mnItmInnentuer  	= new MenuItem("Innentuervarianten");
-    private MenuItem mnItmFensterAußentueren = new MenuItem("Fenster und Außentüren");
+    private MenuItem mnItmFensterAussentueren = new MenuItem("Fenster und Aussentueren");
     private MenuItem mnItmBilder = new MenuItem("Bilder vom Haus");
     //-------Ende Attribute der grafischen Oberflaeche-------
   
@@ -137,11 +137,11 @@ public class KundeView{
 	    mnBar.getMenus().add(mnSonderwuensche);
 	    mnSonderwuensche.getItems().add(mnItmGrundriss);
 	    mnSonderwuensche.getItems().add(mnItmInnentuer);
-	    mnSonderwuensche.getItems().add(mnItmFensterAußentueren);
+	    mnSonderwuensche.getItems().add(mnItmFensterAussentueren);
 	    mnSonderwuensche.getItems().add(mnItmBilder);
     }
 
-    /* initialisiert die Listener zu den Steuerelementen auf de Maske */
+    /* initialisiert die Listener zu den Steuerelementen auf der Maske */
     private void initListener(){
     	cmbBxNummerHaus.setOnAction(aEvent-> {
     		 holeInfoDachgeschoss();  
@@ -160,7 +160,7 @@ public class KundeView{
 	    });
        	btnSuche.setOnAction(aEvent-> { 
        		Kunde kunde = new Kunde();
-            System.out.println("Vorübergehende Ausgabe der Kundendaten: (im KundeModel)");
+            System.out.println("Voruebergehende Ausgabe der Kundendaten: (im KundeModel)");
        	    System.out.println("Vorname:" + kunde.getVorname());
     	   	System.out.println("Nachname:" + kunde.getNachname());
     	   	System.out.println("Email:" + kunde.getEmail());
@@ -198,8 +198,8 @@ public class KundeView{
  	        kundeControl.oeffneInnentuerControl(); 
 	    });
       	
-      	mnItmFensterAußentueren.setOnAction(aEvent-> {
- 	        kundeControl.oeffneFensterAußentuerenControl();
+      	mnItmFensterAussentueren.setOnAction(aEvent-> {
+ 	        kundeControl.oeffneFensterAussentuerenControl();
       	});
       	mnItmBilder.setOnAction(aEvent-> {
  	        kundeControl.oeffneBilderControl();
@@ -225,13 +225,13 @@ public class KundeView{
          kunde.setNachname(txtNachname.getText());
          //kunde.setHausnummer(txtHausnummer.getText());
          kunde.setTelefonnummer(txtTelefon.getText());
-         //TODO Kundennummer hinzufügen
+         //TODO Kundennummer hinzufuegen
          
          if(txtKundenNr.getText().isEmpty() || txtVorname.getText().isEmpty() || txtNachname.getText().isEmpty() || txtTelefon.getText().isEmpty() || txtEmail.getText().isEmpty()) {
 	        	Alert alert = new Alert(AlertType.ERROR);
 	        	alert.setTitle("Error");
 	        	alert.setHeaderText("Fehlende Informationen");
-	        	alert.setContentText("Bitte füllen Sie alle Felder aus");
+	        	alert.setContentText("Bitte fuellen Sie alle Felder aus");
 	        	alert.showAndWait();
          }
          else {

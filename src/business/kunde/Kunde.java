@@ -28,12 +28,6 @@ public class Kunde {
 		this.kundennummer = kundennummer;
 	}
 
-	/*
-	 * public int getHausnummer() { return hausnummer; }
-	 * 
-	 * public void setHausnummer(int hausnummer) { this.hausnummer = hausnummer; }
-	 */
-
 	public int getHausnummer() {
 		return this.hausnummer;
 	}
@@ -94,7 +88,7 @@ public class Kunde {
 		return this.kundennummer;
 	}
 
-	// Statische Methode um Informationen eines Kunden zu verändern
+	// Statische Methode um Informationen eines Kunden zu veraendern
 	public static void updateKundeInDatenbank(int kundennummer, String type, String value) throws SQLException {
 		Connection conn = new Datenbank().connect();
 
@@ -115,7 +109,7 @@ public class Kunde {
 		Connection conn = new Datenbank().connect();
 
 		if (hausnummer > 24 || hausnummer < 1) {
-			throw new Exception("Bitte wähle eine Hausnummer zwischen 1 und 24");
+			throw new Exception("Bitte waehle eine Hausnummer zwischen 1 und 24");
 		}
 
 		String query = "INSERT INTO Kunde (kundennummer,vorname,nachname,email,telefonnummer) VALUES ('"
@@ -167,7 +161,7 @@ public class Kunde {
 	}
 	
 	
-	// Diese Methode ist etwas fragwürdig aber ich haue sie trotzdem mal rein ^^
+	// Diese Methode ist etwas fragwuerdig aber ich haue sie trotzdem mal rein ^^
 	public static void LoeschePlanById(String plannummer) {
 		Datenbank db = new Datenbank();
 		Connection conn = db.connect();

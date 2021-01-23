@@ -15,25 +15,25 @@ public class InnentuerView extends BasisView{
 
 	//---Anfang Attribute der grafischen Oberflaeche---
 	
-	// F40 4.1) Mehrpreis f�r die Ausf�hrung eines Glasausschnitts (Klarglas) in einer Innent�r
+	// F40 4.1) Mehrpreis fuer die Ausfuehrung eines Glasausschnitts (Klarglas) in einer Innentuer
     private Label lblTuerKlarglas
-        = new Label("Mehrpreis f�r die Ausf�hrung eines Glasausschnitts (Klarglas) in einer Innent�r");
+        = new Label("Mehrpreis fuer die Ausfuehrung eines Glasausschnitts (Klarglas) in einer Innentuer");
     private TextField txtPreisTuerKlarglas 	= new TextField();
-    private Label lblTuerKlarglasEuro 	= new Label(",- Euro je T�r");
+    private Label lblTuerKlarglasEuro 	= new Label(",- Euro je Tuer");
     private TextField chckTuerKlarglas 	= new TextField();
 
-	// F40 4.2) Mehrpreis f�r die Ausf�hrung eines Glasausschnitts (Milchglas) in einer Innent�r
+	// F40 4.2) Mehrpreis fuer die Ausfuehrung eines Glasausschnitts (Milchglas) in einer Innentuer
     private Label lblTuerMilchglas
-        = new Label("Mehrpreis f�r die Ausf�hrung eines Glasausschnitts (Milchglas) in einer Innent�r");
+        = new Label("Mehrpreis fuer die Ausfuehrung eines Glasausschnitts (Milchglas) in einer Innentuer");
     private TextField txtPreisTuerMilchglas 	= new TextField();
-    private Label lblTuerMilchglasEuro	= new Label(",- Euro je T�r");
+    private Label lblTuerMilchglasEuro	= new Label(",- Euro je Tuer");
     private TextField chckTuerMilchglas	= new TextField();
 
-	// F40 4.1) Innent�r zur Garage als Holzt�r
+	// F40 4.1) Innentuer zur Garage als Holztuer
     private Label lblHolztuerGarage
-        = new Label("Innent�r zur Garage als Holzt�r");
+        = new Label("Innentuer zur Garage als Holztuer");
     private TextField txtPreisHolztuerGarage 	= new TextField();
-    private Label lblHolztuerGarageEuro		= new Label(",- Euro je T�r");
+    private Label lblHolztuerGarageEuro		= new Label(",- Euro je Tuer");
     private TextField chckHolztuerGarage 	= new TextField();
 
     //-------Ende Attribute der grafischen Oberflaeche-------
@@ -47,7 +47,7 @@ public class InnentuerView extends BasisView{
     public InnentuerView (InnentuerControl innentuerControl, Stage innentuerStage){
     	super(innentuerStage);
         this.innentuerControl = innentuerControl;
-        innentuerStage.setTitle("Sonderw�nsche zu Innentuer-Varianten");
+        innentuerStage.setTitle("Sonderwuensche zu Innentuer-Varianten");
 
 	    this.initKomponenten();
     }
@@ -55,7 +55,7 @@ public class InnentuerView extends BasisView{
     /* initialisiert die Steuerelemente auf der Maske */
 	protected void initKomponenten() {
 		super.initKomponenten();
-       	super.getLblSonderwunsch().setText("Innent�r-Varianten");
+       	super.getLblSonderwunsch().setText("Innentuer-Varianten");
        	// F40 4.1)
        	super.getGridPaneSonderwunsch().add(lblTuerKlarglas, 0, 1);
     	super.getGridPaneSonderwunsch().add(txtPreisTuerKlarglas, 1, 1);
@@ -80,7 +80,7 @@ public class InnentuerView extends BasisView{
 	}
 
 	 /**
-	 * macht das Innent�r-Objekt sichtbar.
+	 * macht das Innentuer-Objekt sichtbar.
 	 */
 	public void oeffneInnentuerView(){
 		super.oeffneBasisView();
@@ -108,11 +108,10 @@ public class InnentuerView extends BasisView{
 		preisInnentueren = anzahlTuerKlarglas * 460 + anzahlTuerMilchglas * 560 + anzahlHolztuerGarage * 660;
 		
 		if (this.innentuerControl.pruefeKonstellationSonderwuensche(ausgewaehlteSw)) { 
-			//System.out.println("Es findet noch keine Konstellations�berpr�fung statt");
-			System.out.println("alle Angaben bzgl. der Anzahl der Innent�ren sind korrekt");
-			System.out.println("Gesamtpreis der Innent�ren :\t" + preisInnentueren);
+			System.out.println("alle Angaben bzgl. der Anzahl der Innentueren sind korrekt");
+			System.out.println("Gesamtpreis der Innentueren :\t" + preisInnentueren);
 		}
-		else System.out.println("Fehler in den Anzahl Angaben der Innent�ren");
+		else System.out.println("Fehler in den Anzahl Angaben der Innentueren");
 		
 		
 	}

@@ -12,20 +12,20 @@ public void ausgabeGrundriss(String[] grundriss, int[] preise, int kundenNummer,
 		String name = String.valueOf(kundenNummer);
 		name = name + "_" + nachname + "_Grundriss.csv";
 		
-		int länge = grundriss.length;
+		int laenge = grundriss.length;
 		int gesamtpreis = 0;
 		
 		try {
 			
 			fw = new FileWriter(name);
 			
-			for(int i = 0; i<länge; i++) {
+			for(int i = 0; i<laenge; i++) {
 				fw.write(grundriss[i]+";");
 				try {
 					fw.append(preise[i]+"\n");
 					gesamtpreis = gesamtpreis + preise[i];
 				}catch(Exception e) {}
-				if(i+1 == länge) {
+				if(i+1 == laenge) {
 					fw.append("Gesamtpreis:;");
 					String gesamtPreis = String.valueOf(gesamtpreis);
 					fw.append(gesamtPreis);
@@ -52,21 +52,21 @@ public void ausgabeGrundriss(String[] grundriss, int[] preise, int kundenNummer,
 		String name = String.valueOf(kundenNummer);
 		name = name + "_" + nachname + "_FensterUndAussentueren.csv";
 		
-		int länge = fuA.length;
+		int laenge = fuA.length;
 		int gesamtpreis = 0;
 		
 		try {
 			
 			fw = new FileWriter(name);
 			
-			for(int i = 0; i<länge; i++) {
+			for(int i = 0; i<laenge; i++) {
 				fw.write(fuA[i]+";");
 				try {
 					fw.append(preise[i]+"\n");
 					gesamtpreis = gesamtpreis + preise[i];
 				}catch(Exception e) {}
 				
-				if(i+1 == länge) {
+				if(i+1 == laenge) {
 					fw.append("Gesamtpreis:;");
 					String gesamtPreis = String.valueOf(gesamtpreis);
 					fw.append(gesamtPreis);
@@ -90,24 +90,24 @@ public void ausgabeGrundriss(String[] grundriss, int[] preise, int kundenNummer,
 	
 	public void ausgabeInnentueren(String[] innentueren, int[] preise, int kundenNummer, String nachname) {
 		String name = String.valueOf(kundenNummer);
-		name = name + "_" + nachname + "_Innentüren.csv";
+		name = name + "_" + nachname + "_Innentueren.csv";
 		
 		
-		int länge = innentueren.length;
+		int laenge = innentueren.length;
 		int gesamtpreis = 0;
 		
 		try {
 			
 			fw = new FileWriter(name);
 			
-			for(int i = 0; i<länge; i++) {
+			for(int i = 0; i<laenge; i++) {
 				fw.write(innentueren[i]+";");
 				try {
 					fw.append(preise[i]+"\n");
 					gesamtpreis = gesamtpreis + preise[i];
 				}catch(Exception e) {}
 				
-				if(i+1 == länge) {
+				if(i+1 == laenge) {
 					fw.append("Gesamtpreis:;");
 					String gesamtPreis = String.valueOf(gesamtpreis);
 					fw.append(gesamtPreis);

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import business.kunde.Kunde;
 import business.kunde.KundeModel;
 import gui.bilder.BilderControl;
-import gui.fensterAußentueren.FensterAußentuerenControl;
+import gui.fensterAussentueren.FensterAussentuerenControl;
 import gui.grundriss.GrundrissControl;
 import gui.innentuer.InnentuerControl;
 import javafx.stage.Stage;
@@ -24,7 +24,7 @@ public class KundeControl {
        zum Grundriss zu dem Kunden */
     private GrundrissControl grundrissControl;
     private InnentuerControl innentuerControl;
-    private FensterAußentuerenControl fensterAußentuerenControl;
+    private FensterAussentuerenControl fensterAussentuerenControl;
     private BilderControl bilderControl;
     
     /**
@@ -58,11 +58,11 @@ public class KundeControl {
     }
     
     
-    public void oeffneFensterAußentuerenControl(){
-    	if (this.fensterAußentuerenControl == null){
-    		this.fensterAußentuerenControl = new FensterAußentuerenControl(kundeModel);
+    public void oeffneFensterAussentuerenControl(){
+    	if (this.fensterAussentuerenControl == null){
+    		this.fensterAussentuerenControl = new FensterAussentuerenControl(kundeModel);
       	}
-    	this.fensterAußentuerenControl.oeffneFensterAußentuerenView();
+    	this.fensterAussentuerenControl.oeffneFensterAussentuerenView();
     }
     
     public void oeffneBilderControl(){

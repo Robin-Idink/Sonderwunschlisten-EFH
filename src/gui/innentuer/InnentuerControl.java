@@ -18,9 +18,9 @@ public final class InnentuerControl {
 
 	/**
 	 * erzeugt ein ControlObjekt inklusive View-Objekt und Model-Objekt zum Fenster
-	 * fuer die Sonderwuensche zu den Innent�ren.
+	 * fuer die Sonderwuensche zu den Innentueren.
 	 * 
-	 * @param innentuerStage, Stage fuer das View-Objekt zu den Sonderwuenschen zu den Innent�ren
+	 * @param innentuerStage, Stage fuer das View-Objekt zu den Sonderwuenschen zu den Innentueren
 	 */
 	public InnentuerControl(KundeModel kundeModel) {
 		Stage stageInnentuer = new Stage();
@@ -40,10 +40,10 @@ public final class InnentuerControl {
 	}
 
 	public int berechneMaxAnzahlTueren(int[] ausgewaehlteSw) {
-		// TODO Zugriff auf Sonderwuensche über KundeModel.getInstance().getKunde().getSonderwuensche()
-		// TODO Zugriff auf Dachgeschoss Boolean über KundeModel.getInstance().getKunde().hatDachgeschoss()	
+		// TODO Zugriff auf Sonderwuensche ueber KundeModel.getInstance().getKunde().getSonderwuensche()
+		// TODO Zugriff auf Dachgeschoss Boolean ueber KundeModel.getInstance().getKunde().hatDachgeschoss()	
 		
-		//Berechnung der maximalen Anzahl der m�glichen T�ren, basierend auf dem Grundriss und den ausgew�hlten Sonderw�nschen
+		//Berechnung der maximalen Anzahl der moeglichen Tueren, basierend auf dem Grundriss und den ausgewaehlten Sonderwuenschen
 		int maxAnzahlTueren = 0;
 		
 		boolean dachgeschoss = true;
@@ -70,8 +70,8 @@ public final class InnentuerControl {
 		
 	}
 	public boolean pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw) {
-		// TODO Zugriff auf Sonderwuensche über KundeModel.getInstance().getKunde().getSonderwuensche()
-		// TODO Zugriff auf Dachgeschoss Boolean über KundeModel.getInstance().getKunde().hatDachgeschoss()	
+		// TODO Zugriff auf Sonderwuensche ueber KundeModel.getInstance().getKunde().getSonderwuensche()
+		// TODO Zugriff auf Dachgeschoss Boolean ueber KundeModel.getInstance().getKunde().hatDachgeschoss()	
 		
 		/*
 		wobei gilt:
@@ -80,26 +80,26 @@ public final class InnentuerControl {
 		ausgewaehlteSw[43] = anzahlHolztuerGarage
 		 */
 		
-		//Hier muss die Anzahl der eingegebenen T�ren �berpr�ft werden.
+		//Hier muss die Anzahl der eingegebenen Tueren ueberprueft werden.
 		//Unterschieden wird zwischen Keller, EG, OG und DG.
 		
 		boolean dachgeschoss = true;
 		boolean result = true;
-		//Pr�fung der 4.x Sonderw�nsche
+		//Pruefung der 4.x Sonderwuensche
 		
 		try {
-			//Fehlermeldung falls die Summer der ausgew�hlten T�ren in 4.1 und 4.2 die maximal Anzahl �berschreitet
+			//Fehlermeldung falls die Summer der ausgewaehlten Tueren in 4.1 und 4.2 die maximal Anzahl ueberschreitet
 			if(ausgewaehlteSw[41]+ausgewaehlteSw[42] > berechneMaxAnzahlTueren(ausgewaehlteSw))
-				throw new Exception("\n Die Anzahl der Ausgew�hlten T�ren �berschreitet die maximale Anzahl der m�glichen T�ren!");
+				throw new Exception("\n Die Anzahl der Ausgewaehlten Tueren ueberschreitet die maximale Anzahl der moeglichen Tueren!");
 			
-			//Fehlermeldung falls 4.3 ausgew�hlt wird obwohl es kein Dachgeschoss gibt
+			//Fehlermeldung falls 4.3 ausgewaehlt wird obwohl es kein Dachgeschoss gibt
 			if(ausgewaehlteSw[43]==1)
 				if(!dachgeschoss)
-					throw new Exception("\n 4.3 kann nur ausgew�hlt werden wenn auch ein Dachgeschoss vorhanden ist!");
+					throw new Exception("\n 4.3 kann nur ausgewaehlt werden wenn auch ein Dachgeschoss vorhanden ist!");
 		
 		}catch(Exception e) {
 				result = false;
-				System.out.println("Sonderw�nsche sind nicht kompatibel!" + e.getMessage());
+				System.out.println("Sonderwuensche sind nicht kompatibel!" + e.getMessage());
 
 		}
 		return result;

@@ -83,7 +83,7 @@ public abstract class BasisView {
         	//csvcontrol.ausgabeInnentueren();//Benutzen, wenn Methode angepasst
         	PrintWriter pWriter = null;
         	try{
-        		pWriter = new PrintWriter(new FileWriter("Innentüren.csv"));
+        		pWriter = new PrintWriter(new FileWriter("Innentueren.csv"));
         		pWriter.println("Kundennummer_NachnameDesKunden_Innentueren.csv");
         		JOptionPane.showMessageDialog(null, "Kundennummer_NachnameDesKunden_Innentueren.csv");
         	}catch (IOException ioe) {

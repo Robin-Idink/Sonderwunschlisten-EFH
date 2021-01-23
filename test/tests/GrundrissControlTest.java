@@ -12,7 +12,7 @@ import business.kunde.KundeModel;
 import gui.grundriss.GrundrissControl;
 
 class GrundrissControlTest {
-	// Definitionen von Abhängigkeiten definiert am 03.12.2020
+	// Definitionen von Abhaengigkeiten definiert am 03.12.2020
 	// Initialisierung Sonderwuensche
 	int[] sonderwuensche = new int[50];
 	

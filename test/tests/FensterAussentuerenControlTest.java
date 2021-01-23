@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test;
 // internal modules
 import business.kunde.Kunde;
 import business.kunde.KundeModel;
-import gui.fensterAußentueren.FensterAußentuerenControl;
+import gui.fensterAussentueren.FensterAussentuerenControl;
 
-class FensterAußentuerenControlTest {
+class FensterAussentuerenControlTest {
 
-	// Definitionen von Abh�ngigkeiten definiert am 03.12.2020
+	// Definitionen von Abhaengigkeiten definiert am 03.12.2020
 	// Initialisierung Sonderwuensche
 	int[] sonderwuensche = new int[50];
 	
@@ -25,7 +25,7 @@ class FensterAußentuerenControlTest {
 	int[] sonderwuensche39with36 = sonderwuensche.clone();
 	int[] sonderwuensche39without36 = sonderwuensche.clone();
 	
-	FensterAußentuerenControl testFensterAußentuerenControl = new FensterAußentuerenControl();
+	FensterAussentuerenControl testFensterAussentuerenControl = new FensterAussentuerenControl();
 	
 	Kunde kundeWithDG = new Kunde();
 	Kunde kundeWithoutDG = new Kunde();
@@ -78,29 +78,28 @@ class FensterAußentuerenControlTest {
 
 	@Test
 	void testPruefeKonstellationSonderwuensche() {
-		// TODO add a check if DG or no DG
-		
+
 		// Test 3.2 mit DG
 		setKundeModel(kundeWithDG, kundeModel);
-		assertTrue(testFensterAußentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche32));
+		assertTrue(testFensterAussentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche32));
 		// Test 3.2 ohne DG
 		setKundeModel(kundeWithoutDG, kundeModel);
-		assertFalse(testFensterAußentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche32));
+		assertFalse(testFensterAussentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche32));
 		
 		// Test 3.7 mit 3.4
-		assertTrue(testFensterAußentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche37with34));
+		assertTrue(testFensterAussentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche37with34));
 		// Test 3.7 ohne 3.4
-		assertFalse(testFensterAußentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche37without34));
+		assertFalse(testFensterAussentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche37without34));
 		
 		// Test 3.8 mit 3.5
-		assertTrue(testFensterAußentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche38with35));
+		assertTrue(testFensterAussentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche38with35));
 		// Test 3.8 ohne 3.5
-		assertFalse(testFensterAußentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche38without35));
+		assertFalse(testFensterAussentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche38without35));
 		
 		// Test 3.9 mit 3.6
-		assertTrue(testFensterAußentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche39with36));
+		assertTrue(testFensterAussentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche39with36));
 		// Test 3.9 ohne 3.6
-		assertFalse(testFensterAußentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche39without36));			
+		assertFalse(testFensterAussentuerenControl.pruefeKonstellationSonderwuensche(sonderwuensche39without36));			
 	
 	}
 

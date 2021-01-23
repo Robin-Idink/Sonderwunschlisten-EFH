@@ -38,20 +38,20 @@ public final class GrundrissControl {
 	}
 
 	public boolean pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw) {
-		// TODO Zugriff auf Sonderwuensche über KundeModel.getInstance().getKunde().getSonderwuensche()
-		// TODO Zugriff auf Dachgeschoss Boolean über KundeModel.getInstance().getKunde().hatDachgeschoss()		
+		// TODO Zugriff auf Sonderwuensche ueber KundeModel.getInstance().getKunde().getSonderwuensche()
+		// TODO Zugriff auf Dachgeschoss Boolean ueber KundeModel.getInstance().getKunde().hatDachgeschoss()		
 
 		boolean result = false;
 		
 		boolean dachgeschoss = true;
 	
 
-		//�berpr�fung der Konstellation der Ausgew�hlten Sonderw�nsche
+		//Ueberpruefung der Konstellation der Ausgewaehlten Sonderwuensche
 		
 		try {
 			
 			
-			//Pr�fung der 2.x Sonderw�nsche
+			//Pruefung der 2.x Sonderwuensche
 			
 			for (int i = 21; i < 27; i++) {
 				switch (i) {
@@ -71,7 +71,7 @@ public final class GrundrissControl {
 //						System.out.println("Sie haben SW 2.2 ausgew�hlt!");
 						break;
 					}else { 
-						throw new Exception("\n2.2 kann nur ausgew�hlt werden wenn 2.1 auch ausgew�hlt wurde!");
+						throw new Exception("\n2.2 kann nur ausgewaehlt werden wenn 2.1 auch ausgewaehlt wurde!");
 					}
 
 				case 23:
@@ -107,7 +107,7 @@ public final class GrundrissControl {
 							result = true;
 							break;
 						}else { 
-							throw new Exception("\n2.6 kann nur ausgew�hlt werden wenn 2.5 auch ausgew�hlt wurde!");
+							throw new Exception("\n2.6 kann nur ausgewaehlt werden wenn 2.5 auch ausgewaehlt wurde!");
 						}
 					}else {
 						break;
@@ -120,7 +120,7 @@ public final class GrundrissControl {
 		} catch (Exception e) {
 
 			result = false;
-			System.out.println("Sonderw�nsche sind nicht kompatibel!" + e.getMessage());
+			System.out.println("Sonderwuensche sind nicht kompatibel!" + e.getMessage());
 
 		}
 

@@ -1,31 +1,31 @@
-package gui.fensterAußentueren;
+package gui.fensterAussentueren;
 
 import business.kunde.KundeModel;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public final class FensterAußentuerenControl {
+public final class FensterAussentuerenControl {
 	
-	private FensterAußentuerenView fensterAußentuerenView;
+	private FensterAussentuerenView fensterAussentuerenView;
 
-	public FensterAußentuerenControl(KundeModel kundeModel) {
-		Stage stageFensterAußentueren = new Stage();
-		stageFensterAußentueren.initModality(Modality.APPLICATION_MODAL);
-    	this.fensterAußentuerenView = new FensterAußentuerenView(this, stageFensterAußentueren);
+	public FensterAussentuerenControl(KundeModel kundeModel) {
+		Stage stageFensterAussentueren = new Stage();
+		stageFensterAussentueren.initModality(Modality.APPLICATION_MODAL);
+    	this.fensterAussentuerenView = new FensterAussentuerenView(this, stageFensterAussentueren);
 		
 	}
 	
-	public FensterAußentuerenControl() {
+	public FensterAussentuerenControl() {
 		
 	}
 	
-	public void oeffneFensterAußentuerenView(){ 
-		this.fensterAußentuerenView.oeffneFensterAußentuerenView();
+	public void oeffneFensterAussentuerenView(){ 
+		this.fensterAussentuerenView.oeffneFensterAussentuerenView();
 	}
 	
 	public boolean pruefeKonstellationSonderwuensche(int[] ausgewaehlteSw){
-		// TODO Zugriff auf Sonderwuensche über KundeModel.getInstance().getKunde().getSonderwuensche()
-		// TODO Zugriff auf Dachgeschoss Boolean über KundeModel.getInstance().getKunde().hatDachgeschoss()	
+		// TODO Zugriff auf Sonderwuensche ueber KundeModel.getInstance().getKunde().getSonderwuensche()
+		// TODO Zugriff auf Dachgeschoss Boolean ueber KundeModel.getInstance().getKunde().hatDachgeschoss()	
 		
 		
 		boolean result = false;
@@ -41,7 +41,7 @@ public final class FensterAußentuerenControl {
 				case 31:
 					if(ausgewaehlteSw[31] == 1) {
 						result = true;
-//					System.out.println("Sie haben SW 3.1 ausgew�hlt!");
+//					System.out.println("Sie haben SW 3.1 ausgewaehlt!");
 						break;
 					}else {
 						break;
@@ -50,7 +50,7 @@ public final class FensterAußentuerenControl {
 				case 32:
 					if (dachgeschoss && ausgewaehlteSw[32] == 1) {
 						result = true;
-//					System.out.println("Sie haben SW 3.2 ausgew�hlt!");
+//					System.out.println("Sie haben SW 3.2 ausgewaehlt!");
 						break;
 					}else { 
 						break;
@@ -98,7 +98,7 @@ public final class FensterAußentuerenControl {
 							result = true;
 							break;
 						}else { 
-							throw new Exception("\n3.7 kann nur ausgew�hlt werden wenn 3.4 auch ausgew�hlt wurde!");
+							throw new Exception("\n3.7 kann nur ausgewaehlt werden wenn 3.4 auch ausgewaehlt wurde!");
 						}
 					}else {
 						break;
@@ -111,7 +111,7 @@ public final class FensterAußentuerenControl {
 							result = true;
 							break;
 						}else { 
-							throw new Exception("\n3.8 kann nur ausgew�hlt werden wenn 3.5 auch ausgew�hlt wurde!");
+							throw new Exception("\n3.8 kann nur ausgewaehlt werden wenn 3.5 auch ausgewaehlt wurde!");
 						}
 					}else {
 						break;
@@ -123,7 +123,7 @@ public final class FensterAußentuerenControl {
 							result = true;
 							break;
 						}else { 
-							throw new Exception("\n3.9 kann nur ausgew�hlt werden wenn 3.6 auch ausgew�hlt wurde!");
+							throw new Exception("\n3.9 kann nur ausgewaehlt werden wenn 3.6 auch ausgewaehlt wurde!");
 						}
 					}else {
 						break;
@@ -134,7 +134,7 @@ public final class FensterAußentuerenControl {
 		} catch (Exception e) {
 
 			result = false;
-			System.out.println("Sonderw�nsche sind nicht kompatibel!" + e.getMessage());
+			System.out.println("Sonderwuensche sind nicht kompatibel!" + e.getMessage());
 
 		}
 		
