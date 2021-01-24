@@ -93,10 +93,16 @@ public final class InnentuerControl {
 				throw new Exception("\n Die Anzahl der Ausgewaehlten Tueren ueberschreitet die maximale Anzahl der moeglichen Tueren!");
 			
 			//Fehlermeldung falls 4.3 ausgewaehlt wird obwohl es kein Dachgeschoss gibt
-			if(ausgewaehlteSw[43]==1)
-				if(!dachgeschoss)
-					throw new Exception("\n 4.3 kann nur ausgewaehlt werden wenn auch ein Dachgeschoss vorhanden ist!");
-		
+			
+			
+			if(ausgewaehlteSw[43] > 0)
+				if(ausgewaehlteSw[43]==1) {
+					if(!dachgeschoss)
+						throw new Exception("\n 4.3 kann nur ausgewaehlt werden wenn auch ein Dachgeschoss vorhanden ist!");
+				}else {
+					throw new Exception("\n Es kann nur maximal eine Garagentür ausgewählt werden");
+				}
+			
 		}catch(Exception e) {
 				result = false;
 				System.out.println("Sonderwuensche sind nicht kompatibel!" + e.getMessage());

@@ -36,6 +36,7 @@ public class InnentuerView extends BasisView{
     private Label lblHolztuerGarageEuro		= new Label(",- Euro je Tuer");
     private TextField chckHolztuerGarage 	= new TextField();
 
+
     //-------Ende Attribute der grafischen Oberflaeche-------
 
     /**
@@ -62,6 +63,7 @@ public class InnentuerView extends BasisView{
     	txtPreisTuerKlarglas.setText("460");
     	txtPreisTuerKlarglas.setEditable(false);
     	super.getGridPaneSonderwunsch().add(lblTuerKlarglasEuro, 2, 1);
+    	chckTuerKlarglas.setText("0");
     	super.getGridPaneSonderwunsch().add(chckTuerKlarglas, 3, 1);
        	// F40 4.2)
        	super.getGridPaneSonderwunsch().add(lblTuerMilchglas, 0, 2);
@@ -69,6 +71,7 @@ public class InnentuerView extends BasisView{
     	txtPreisTuerMilchglas.setText("560");
     	txtPreisTuerMilchglas.setEditable(false);
     	super.getGridPaneSonderwunsch().add(lblTuerMilchglasEuro, 2, 2);
+    	chckTuerMilchglas.setText("0");
     	super.getGridPaneSonderwunsch().add(chckTuerMilchglas, 3, 2);
     	// F40 4.3)
        	super.getGridPaneSonderwunsch().add(lblHolztuerGarage, 0, 3);
@@ -76,6 +79,7 @@ public class InnentuerView extends BasisView{
     	txtPreisHolztuerGarage.setText("660");
     	txtPreisHolztuerGarage.setEditable(false);
     	super.getGridPaneSonderwunsch().add(lblHolztuerGarageEuro, 2, 3);
+    	chckHolztuerGarage.setText("0");
     	super.getGridPaneSonderwunsch().add(chckHolztuerGarage, 3, 3);
 	}
 
