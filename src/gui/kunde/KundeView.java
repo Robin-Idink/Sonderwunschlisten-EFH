@@ -1,9 +1,5 @@
 package gui.kunde;
 
-
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-
 import business.kunde.*;
 
 import javafx.geometry.*;
@@ -14,11 +10,11 @@ import javafx.scene.layout.*;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.plaf.metal.MetalIconFactory;
 
 /**
  * Klasse, welche das Grundfenster mit den Kundendaten bereitstellt.
@@ -59,7 +55,7 @@ public class KundeView{
     private MenuItem mnItmGrundriss  	= new MenuItem("Grundrissvarianten");
     private MenuItem mnItmInnentuer  	= new MenuItem("Innentuervarianten");
     private MenuItem mnItmFensterAussentueren = new MenuItem("Fenster und Aussentueren");
-    private MenuItem mnItmBilder = new MenuItem("Bilder vom Haus");
+    //private MenuItem mnItmBilder = new MenuItem("Bilder vom Haus");
     //-------Ende Attribute der grafischen Oberflaeche-------
   
     /**
@@ -138,7 +134,7 @@ public class KundeView{
 	    mnSonderwuensche.getItems().add(mnItmGrundriss);
 	    mnSonderwuensche.getItems().add(mnItmInnentuer);
 	    mnSonderwuensche.getItems().add(mnItmFensterAussentueren);
-	    mnSonderwuensche.getItems().add(mnItmBilder);
+	    //mnSonderwuensche.getItems().add(mnItmBilder);
     }
 
     /* initialisiert die Listener zu den Steuerelementen auf der Maske */
@@ -184,54 +180,35 @@ public class KundeView{
        
 	    //1,6,7,14,15 und 24 haben kein Dachgeschoss
 	    btnBilder.setOnAction(aEvent-> {
-	    	// TODO Zugriff auf Dachgeschoss Boolean ueber KundeModel.getInstance().getKunde().hatDachgeschoss()
-	    	//Image image;
+	    	//Zugriff auf Dachgeschoss Boolean ueber KundeModel.getInstance().getKunde().hatDachgeschoss()
+	    	//Zugriff auf Sonderwuensche ueber KundeModel.getInstance().getKunde().getSonderwuensche()
 	       	//Kunde dachgeschoss = new Kunde();
 	    	try {
-				if(KundeModel.getInstance().getKunde().hatDachgeschoss()==true) {
-					File image = new File("dg.jpg");	
+	    		KundeModel.getInstance().getKunde().getSonderwuensche();
+				if((KundeModel.getInstance().getKunde().hatDachgeschoss())==true) {
+					System.out.println("Hat DG");
+					
+					Icon icon = MetalIconFactory.getFileChooserHomeFolderIcon();
+			        JFrame meinFrame = new JFrame("Haus hat ein Dachgeschoss");       
+			        meinFrame.setSize(500,400);
+			        meinFrame.add(new JLabel("Bild vom Haus mit Dachgeschoss",icon, JLabel.CENTER));
+			        meinFrame.setVisible(true);
+					
+				} else {
+					System.out.println("Hat kein DG");
+					
+					Icon icon = MetalIconFactory.getFileChooserHomeFolderIcon();
+			        JFrame meinFrame = new JFrame("Haus hat kein Dachgeschoss");       
+			        meinFrame.setSize(500,400);
+			        meinFrame.add(new JLabel("Bild vom Haus ohne Dachgeschoss",icon, JLabel.CENTER));
+			        meinFrame.setVisible(true);
+					
 				}
 			} catch (Exception e) {
-				
+				System.out.println("Dachschaden");
 				e.printStackTrace();
 			}
-	    	try {
-	    		if(KundeModel.getInstance().getKunde().hatDachgeschoss()==false) {
-					File image = new File("ohneDG.jpg");
-	    		
-	    		}
-	    	}catch (Exception e) {
-					e.printStackTrace();
-			}
-	    	/*if(Kunde.hatDachgeschoss()==true) {
-	    		
-	    	}
-	       	if (holeInfoDachgeschoss()==1) {
-	       		
-	       	}
-	       	Image image;
-	       	if(dachgeschoss.<getPlannummern>()) {
-	       		File image1 = new File("ohneDG.jpg");
-	       	} else {
-	       		File image2 = new File("dg.jpg");
-	       	}*/
-	       	
-	       	/*try {
-				if(dachgeschoss.hatDachgeschoss()) {
-					File image1 = new File("dg.jpg");  
-				}
-			} catch (Exception e) {
-					e.printStackTrace();
-			}
-	       	try {
-				//if(dachgeschoss.hatDachgeschoss()) {
-					File image2 = new File("ohneDG.jpg");  
-				}
-			catch (Exception e) {
-					e.printStackTrace();
-			}*/
-		
-	       	
+	    	       	
 	    });
 		
   
@@ -246,9 +223,9 @@ public class KundeView{
       	mnItmFensterAussentueren.setOnAction(aEvent-> {
  	        kundeControl.oeffneFensterAussentuerenControl();
       	});
-      	mnItmBilder.setOnAction(aEvent-> {
+      	/*mnItmBilder.setOnAction(aEvent-> {
  	        kundeControl.oeffneBilderControl();
-      	});
+      	});*/
     
     }
     
@@ -310,11 +287,4 @@ public class KundeView{
   	        alert.show();
   	    }
   	
-  		
-   	
-  	
-   	
-
 }
-
-
