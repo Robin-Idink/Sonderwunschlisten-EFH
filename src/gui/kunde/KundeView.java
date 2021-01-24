@@ -182,10 +182,41 @@ public class KundeView{
           
 	    });
        
+	    //1,6,7,14,15 und 24 haben kein Dachgeschoss
 	    btnBilder.setOnAction(aEvent-> {
-	    	Image image;
-	       	Kunde dachgeschoss = new Kunde();
-	       	try {
+	    	// TODO Zugriff auf Dachgeschoss Boolean ueber KundeModel.getInstance().getKunde().hatDachgeschoss()
+	    	//Image image;
+	       	//Kunde dachgeschoss = new Kunde();
+	    	try {
+				if(KundeModel.getInstance().getKunde().hatDachgeschoss()==true) {
+					File image = new File("dg.jpg");	
+				}
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+	    	try {
+	    		if(KundeModel.getInstance().getKunde().hatDachgeschoss()==false) {
+					File image = new File("ohneDG.jpg");
+	    		
+	    		}
+	    	}catch (Exception e) {
+					e.printStackTrace();
+			}
+	    	/*if(Kunde.hatDachgeschoss()==true) {
+	    		
+	    	}
+	       	if (holeInfoDachgeschoss()==1) {
+	       		
+	       	}
+	       	Image image;
+	       	if(dachgeschoss.<getPlannummern>()) {
+	       		File image1 = new File("ohneDG.jpg");
+	       	} else {
+	       		File image2 = new File("dg.jpg");
+	       	}*/
+	       	
+	       	/*try {
 				if(dachgeschoss.hatDachgeschoss()) {
 					File image1 = new File("dg.jpg");  
 				}
@@ -193,12 +224,13 @@ public class KundeView{
 					e.printStackTrace();
 			}
 	       	try {
-				if(dachgeschoss.hatDachgeschoss()) {
+				//if(dachgeschoss.hatDachgeschoss()) {
 					File image2 = new File("ohneDG.jpg");  
 				}
-			} catch (Exception e) {
+			catch (Exception e) {
 					e.printStackTrace();
-			}
+			}*/
+		
 	       	
 	    });
 		
