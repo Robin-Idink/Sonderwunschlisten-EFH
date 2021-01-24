@@ -1,7 +1,7 @@
 /**
  * 
  */
-package gui.fensterAussentueren;
+package gui.fensterAußentueren;
 
 import gui.basis.BasisView;
 import javafx.scene.control.CheckBox;

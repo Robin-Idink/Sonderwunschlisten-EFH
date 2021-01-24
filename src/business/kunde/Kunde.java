@@ -134,6 +134,52 @@ public class Kunde {
 
 	}
 	
+	
+	//Get Kunde von Datenbank, mithilfe der Plan oder hausnummer da diese die gleichen sind
+	
+	public static Kunde kundeHolen(int hausnummer) throws Exception {
+		Connection conn = new Datenbank().connect();
+
+		if (hausnummer > 24 || hausnummer < 1) {
+			throw new Exception("Bitte waehle eine Hausnummer zwischen 1 und 24");
+		}
+		
+		String kundennummer="",vorname="",nachname="",email="",telefonnummer="";
+		
+
+		String query = "Select p.kundennummer, k.vorname, k.nachname, k.email, k.telefonnummer from Plan p\r\n" + 
+				"        inner Join Haus h\r\n" + 
+				"        on p.hausnummer = h.hausnummer\r\n" + 
+				"        inner join Kunde k\r\n" + 
+				"        on k.kundennummer = p.kundennummer\r\n" + 
+				"        where p.plannummer =" + hausnummer;
+		
+		try (Statement statement = conn.createStatement()) {
+			ResultSet rs = statement.executeQuery(query);
+
+			while (rs.next()) {
+				 kundennummer = rs.getString("kundennummer");
+				 vorname = rs.getString("vorname");
+				 nachname = rs.getString("nachname");
+				 email  = rs.getString("email");
+				 telefonnummer = rs.getNString("email"); 
+			}
+			rs.close();
+			conn.close();
+		} catch (SQLException ex) {
+			System.out.println("SQLException: " + ex.getMessage());
+			System.out.println("SQLState: " + ex.getSQLState());
+			System.out.println("VendorError: " + ex.getErrorCode());
+		}
+		
+		String hn = String.valueOf(hausnummer);
+		return new Kunde(kundennummer,vorname,nachname,email,telefonnummer,hn);
+
+	}
+	
+	
+	
+	
 	// TODO Methode speichereSonderwuensche()
 
 	public boolean hatDachgeschoss() throws Exception {

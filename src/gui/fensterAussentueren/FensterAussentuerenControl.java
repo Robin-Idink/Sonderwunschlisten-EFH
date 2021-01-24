@@ -1,4 +1,4 @@
-package gui.fensterAussentueren;
+package gui.fensterAußentueren;
 
 import business.kunde.KundeModel;
 import javafx.stage.Modality;

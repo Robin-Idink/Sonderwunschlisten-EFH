@@ -144,8 +144,21 @@ public class KundeView{
     /* initialisiert die Listener zu den Steuerelementen auf der Maske */
     private void initListener(){
     	cmbBxNummerHaus.setOnAction(aEvent-> {
-    		 holeInfoDachgeschoss();  
-    		 leseKunden();
+    			
+    		 try {
+				Kunde kunde = Kunde.kundeHolen(cmbBxNummerHaus.getValue());
+				
+				txtEmail.setText(kunde.getEmail());
+				txtKundenNr.setText(kunde.getKundennummer());
+				txtVorname.setText(kunde.getVorname());
+				txtNachname.setText(kunde.getNachname());
+				txtTelefon.setText(kunde.getTelefonnummer());
+				
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     		 
      	});
        	btnAnlegen.setOnAction(aEvent-> {
@@ -221,10 +234,11 @@ public class KundeView{
          // Objekt kunde fuellen:
          
          kunde.setEmail(txtEmail.getText());
+         kunde.setKundennummer(txtKundenNr.getText());
          kunde.setVorname(txtVorname.getText());
          kunde.setNachname(txtNachname.getText());
-         //kunde.setHausnummer(txtHausnummer.getText());
-         kunde.setTelefonnummer(txtTelefon.getText());
+         kunde.setHausnummer(cmbBxNummerHaus.getValue()); //Änderungen von Ali wenn ich was falsch gemacht habe  sorry ^^  aber so gehts erstmal mit dem anlegen eines Kunden in der DB
+         kunde.setTelefonnummer(txtTelefon.getText()); 
          //TODO Kundennummer hinzufuegen
          
          if(txtKundenNr.getText().isEmpty() || txtVorname.getText().isEmpty() || txtNachname.getText().isEmpty() || txtTelefon.getText().isEmpty() || txtEmail.getText().isEmpty()) {
