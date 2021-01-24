@@ -50,7 +50,7 @@ public class KundeView{
     private TextField txtEmail	    	= new TextField();  
     private TextField txtKundenNr		= new TextField();
     private Button btnAnlegen	 	  	= new Button("Anlegen");
-    private Button btnAendern 	      	= new Button("aendern");
+    private Button btnAendern 	      	= new Button("Aendern");
     private Button btnLoeschen 	 		= new Button("Loeschen");
     private Button btnSuche 	 		= new Button("Suche");
     private Button btnBilder 	 		= new Button("Bilder vom Haus");
