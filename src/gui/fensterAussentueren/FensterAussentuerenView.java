@@ -26,8 +26,8 @@ public class FensterAussentuerenView extends BasisView {
 	private Label lblVorOgRollaeden   	    	= new Label("Vorbereitung der elektr. OG-Rollaeden");
 	private Label lblVorDgRollaeden  	    	= new Label("Vorbereitung der elektr. DG-Rollaeden");
 	private Label lblEgRollaeden   	    	= new Label("Elektrische Rollaeden fuer das EG");
-	private Label lblOgRollaeden   	    	= new Label("Elektrische Rollaeden fuer das EG");
-	private Label lblDgRollaeden   	    	= new Label("Elektrische Rollaeden fuer das EG");
+	private Label lblOgRollaeden   	    	= new Label("Elektrische Rollaeden fuer das OG");
+	private Label lblDgRollaeden   	    	= new Label("Elektrische Rollaeden fuer das DG");
     private TextField preisEGTuerTerasse 		= new TextField();
     private TextField preisTuerDachTerasse 		= new TextField();
     private TextField preisEinbruchschutz 		= new TextField();
@@ -223,7 +223,7 @@ public class FensterAussentuerenView extends BasisView {
 		if (this.fensterAussentuerenControl.pruefeKonstellationSonderwuensche(ausgewaehlteSw)) { 
 			//System.out.println("Es findet noch keine Konstellationsueberpruefung statt");
 			System.out.println("alle Angaben sind korrekt");
-			System.out.println("Gesamtpreis der Fenster und Au�entueren :\t" + preisFensterAussentueren);
+			System.out.println("Gesamtpreis der Fenster und Aussentueren :\t" + preisFensterAussentueren);
 		}
 		else System.out.println("Fehler in den Angaben");
 	}
