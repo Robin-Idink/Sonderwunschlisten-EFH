@@ -164,7 +164,7 @@ public class Kunde {
 				vorname = rs.getString("vorname");
 				nachname = rs.getString("nachname");
 				email = rs.getString("email");
-				telefonnummer = rs.getString("telefonnummer");
+				telefonnummer = rs.getNString("email");
 				
 			}
 			rs.close();
@@ -176,16 +176,16 @@ public class Kunde {
 		}
 
 		
-		return new Kunde(kundennummer, vorname, nachname, telefonnummer, email, hausnummer);
+		return new Kunde(kundennummer, vorname, nachname, email, telefonnummer, hausnummer);
 
 	}
 
-	// Hole Sonderwünsche aus DB f�r den Kunden und schreibe sie in Sonderwunsch
+	// Hole Sonderwünsche aus DB für den Kunden und schreibe sie in Sonderwunsch
 	// array
 
 	public void sonderwuenscheHolen() throws Exception {
 		Connection conn = new Datenbank().connect();
-		String query = "Select * from Sonderw�nsche where hausnummer ="+ this.hausnummer;
+		String query = "Select * from Sonderwünsche where hausnummer ="+ this.hausnummer;
 
 		try (Statement statement = conn.createStatement()) {
 			ResultSet rs = statement.executeQuery(query);
@@ -247,33 +247,10 @@ public class Kunde {
 	public static void LoeschePlanById(String plannummer) {
 		Datenbank db = new Datenbank();
 		Connection conn = db.connect();
-		String query = "DELETE FROM Plan WHERE plannummer=" + plannummer+";";
-		String query2 = "DELETE FROM Kunde WHERE hausnummer="+plannummer+";";
+		String query = "Delete From 'Plan' Where plannummer='" + plannummer + "'";
 
 		try (Statement statement = conn.createStatement()) {
 			statement.execute(query);
-			statement.execute(query2);
-			conn.close();
-
-		} catch (SQLException ex) {
-			System.out.println("SQLException: " + ex.getMessage());
-			System.out.println("SQLState: " + ex.getSQLState());
-			System.out.println("VendorError: " + ex.getErrorCode());
-		}
-
-	}
-	
-	
-	// Methode zum Testen
-	public static void LoescheKundeByKundennummer(String kundennummer) {
-		Datenbank db = new Datenbank();
-		Connection conn = db.connect();
-		String query = "DELETE FROM Plan WHERE kundennummer=" + kundennummer+";";
-		String query2 = "DELETE FROM Kunde WHERE kundennummer="+kundennummer+";";
-
-		try (Statement statement = conn.createStatement()) {
-			statement.execute(query);
-			statement.execute(query2);
 			conn.close();
 
 		} catch (SQLException ex) {
@@ -285,5 +262,3 @@ public class Kunde {
 	}
 
 }
-
-
