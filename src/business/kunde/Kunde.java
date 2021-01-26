@@ -248,11 +248,10 @@ public class Kunde {
 		Datenbank db = new Datenbank();
 		Connection conn = db.connect();
 		String query = "DELETE FROM Plan WHERE plannummer=" + plannummer+";";
-		String query2 = "DELETE FROM Kunde WHERE hausnummer="+plannummer+";";
+		
 
 		try (Statement statement = conn.createStatement()) {
 			statement.execute(query);
-			statement.execute(query2);
 			conn.close();
 
 		} catch (SQLException ex) {
