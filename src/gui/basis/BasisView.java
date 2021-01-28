@@ -78,6 +78,8 @@ public abstract class BasisView {
         btnSpeichern.setOnAction(aEvent -> {
     		speichereSonderwuensche();
     	});
+        
+        // TODO make this work for the different Sonderwunsch-Panels (Grundriss, Innentuer, FensterAussentueren)
         btnExportCsv.setOnAction(aEvent -> {
         	CsvController csvcontrol = new CsvController();
         	//csvcontrol.ausgabeInnentueren();//Benutzen, wenn Methode angepasst
